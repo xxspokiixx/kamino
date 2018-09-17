@@ -1,24 +1,50 @@
-import 'dart:math';
-import 'dart:async';
-import 'view/search.dart';
-
+// Import flutter libraries
 import 'package:flutter/material.dart';
-import 'package:package_info/package_info.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+import 'package:kamino/ui/uielements.dart';
 
-const primaryColor = Color(0xFF4E5D72);
+// Import custom libraries / utils
+import 'animation/transition.dart';
+
+// Import views
+import 'view/search.dart';
+import 'view/settings.dart';
+
+// Import pages
+import 'pages/home.dart';
+
+const primaryColor = const Color(0xFF4E5D72);
+const secondaryColor = const Color(0xFF303A47);
+const backgroundColor = const Color(0xFF303030);
 const appName = "ApolloTV";
 
 void main(){
+
+  // MD2: Remove status bar translucency.
+  changeStatusColor(Color color) async {
+    try {
+      await FlutterStatusbarcolor.setStatusBarColor(color);
+    } on PlatformException catch (e) {
+      print(e);
+    }
+  }
+  changeStatusColor(const Color(0x00000000));
+
   runApp(new MaterialApp(
     title: appName,
     home: KaminoApp(),
     theme: new ThemeData(
       brightness: Brightness.dark,
       primaryColor: primaryColor,
-      accentColor: Colors.lightBlue[600],
+      accentColor: secondaryColor,
       splashColor: Colors.white,
-      highlightColor: Colors.white
+      highlightColor: Colors.white,
+      backgroundColor: backgroundColor
     ),
+
+    // Remove debug banner - because it's annoying.
+    debugShowCheckedModeBanner: false,
   ));
 }
 
@@ -29,32 +55,16 @@ class KaminoApp extends StatefulWidget {
 
 class HomeAppState extends State<KaminoApp> {
 
-  PackageInfo _packageInfo = new PackageInfo(
-    appName: appName,
-    packageName: 'Unknown',
-    version: 'Unknown',
-    buildNumber: 'Unknown'
-  );
-
-  @override
-  void initState(){
-    super.initState();
-    _fetchPackageInfo();
-  }
-
-  Future<Null> _fetchPackageInfo() async {
-    final PackageInfo info = await PackageInfo.fromPlatform();
-    setState(() {
-      _packageInfo = info;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
       appBar: AppBar(
-        title: Text(appName)
+        title: const TitleText(appName),
+        // MD2: make the color the same as the background.
+        backgroundColor: backgroundColor,
+        // Remove box-shadow
+        elevation: 0.00
       ),
 
       drawer: Drawer(
@@ -73,6 +83,11 @@ class HomeAppState extends State<KaminoApp> {
               )
             ),
             ListTile(
+              leading: const Icon(Icons.library_books),
+              title: Text("News")
+            ),
+            Divider(),
+            ListTile(
               leading: const Icon(Icons.gavel),
               title: Text('Disclaimer')
             ),
@@ -82,7 +97,15 @@ class HomeAppState extends State<KaminoApp> {
             ),
             ListTile(
               leading: const Icon(Icons.settings),
-              title: Text('Settings')
+              title: Text('Settings'),
+              onTap: () {
+                Navigator.of(context).pop();
+
+                Navigator.push(
+                    context,
+                    SlideLeftRoute(builder: (context) => SettingsView())
+                );
+              }
             )
           ],
         )
@@ -109,9 +132,10 @@ class HomeAppState extends State<KaminoApp> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-          //TODO: Implement button code
             IconButton(
-              onPressed: () => print("hello"),
+              onPressed: () {
+                // TODO: button code
+              },
               icon: Icon(Icons.home),
               color: Colors.grey.shade400),
             IconButton(
@@ -137,6 +161,8 @@ class HomeAppState extends State<KaminoApp> {
       ),
 
 
+      // Body content
+      body: HomePage().build()
     );
   }
 }
