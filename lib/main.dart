@@ -1,8 +1,11 @@
+import 'dart:math';
 import 'dart:async';
+import 'view/search.dart';
 
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
 
+const primaryColor = Color(0xFF4E5D72);
 const appName = "ApolloTV";
 
 void main(){
@@ -11,7 +14,7 @@ void main(){
     home: KaminoApp(),
     theme: new ThemeData(
       brightness: Brightness.dark,
-      primaryColor: const Color(0xFF4E5D72),
+      primaryColor: primaryColor,
       accentColor: Colors.lightBlue[600],
       splashColor: Colors.white,
       highlightColor: Colors.white
@@ -91,8 +94,13 @@ class HomeAppState extends State<KaminoApp> {
           child: Icon(Icons.search, size: 32.0),
           backgroundColor: Theme.of(context).primaryColor,
           elevation: 12.0,
-          //TODO: Implement search button code
-          onPressed: null),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SearchView())
+            );
+          }
+      ),
 
 
       bottomNavigationBar: BottomAppBar(
