@@ -20,6 +20,8 @@ class _SearchViewState extends State<SearchView> {
 
   Future<List<ResultsModel>> getResults() async{
 
+    List<ResultsModel> searchResults = [];
+
     if (_searchField.text.isNotEmpty != null) {
       searchResults.clear();
       var data = await http.get(
@@ -27,10 +29,10 @@ class _SearchViewState extends State<SearchView> {
       var jsonData = jsonDecode(data.body);
 
 
-      print(jsonData[0]["show"]["image"]["original"].toString());
+      print(jsonData[0]["show"]["image"]["medium"].toString());
 
       for (var u in jsonData) {
-        ResultsModel result = ResultsModel(u["show"]["image"]["original"].toString(),
+        ResultsModel result = ResultsModel(u["show"]["image"]["medium"].toString(),
             u["show"]["name"].toString(),u["show"]["externals"]["imdb"].toString(),
             u["show"]["externals"]["thetvdb"].toString());
         searchResults.add(result);
@@ -38,21 +40,22 @@ class _SearchViewState extends State<SearchView> {
       }
 
 
-      //print("I found : " + searchResults.length.toString());
+      print("I found : " + searchResults.length.toString());
     }
   }
 
   _callAsync(){
     //print("Testing");
     getResults();
-    print(searchResults.length);
+    print("$searchResults         TESTING!!!!!!!!!!!!!!!");
 
     //if there is data change the body
-    if (searchResults.isNotEmpty == true){
+    if (searchResults.length > 1){
       //generate gridview
       setState(() {
        _screenBody = Container(
            child: GridView.builder(
+             itemCount: searchResults.length == null ? 0 : searchResults.length,
                gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
                    crossAxisCount: 3),
                itemBuilder: (BuildContext context, int index){
@@ -98,6 +101,7 @@ class _SearchViewState extends State<SearchView> {
   }
 
   Widget _resultsCard(BuildContext context, int index){
+    //print("index is $index          Array is ${searchResults[index].getImage}");
     return new Card(
       elevation: 5.0,
       child: new Column(
