@@ -44,6 +44,13 @@
             </list>
           </value>
         </entry>
+        <entry key="chewie_nbtx">
+          <value>
+            <list>
+              <option value="D:/sdk/flutter/.pub-cache/git/chewie_nbtx-663e425a8ad6d2f4a80c5cbb9aa9ba36b26905a8/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="collection">
           <value>
             <list>
@@ -90,6 +97,13 @@
           <value>
             <list>
               <option value="D:/sdk/flutter/packages/flutter/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="flutter_android_pip">
+          <value>
+            <list>
+              <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_android_pip-0.0.2/lib" />
             </list>
           </value>
         </entry>
@@ -230,6 +244,13 @@
           <value>
             <list>
               <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/node_preamble-1.4.4/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="open_iconic_flutter">
+          <value>
+            <list>
+              <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/open_iconic_flutter-0.3.0/lib" />
             </list>
           </value>
         </entry>
@@ -408,6 +429,13 @@
             </list>
           </value>
         </entry>
+        <entry key="video_player">
+          <value>
+            <list>
+              <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.6.5/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="vm_service_client">
           <value>
             <list>
@@ -446,6 +474,7 @@
       </option>
     </properties>
     <CLASSES>
+      <root url="file://D:/sdk/flutter/.pub-cache/git/chewie_nbtx-663e425a8ad6d2f4a80c5cbb9aa9ba36b26905a8/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/git/dart_config-c5727795659e886a7db8b39a14e2c8987280fe1f/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-0.32.4/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/archive-2.0.4/lib" />
@@ -458,6 +487,7 @@
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-2.0.6/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/csslib-0.14.5/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-0.1.2/lib" />
+      <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_android_pip-0.0.2/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.6.1/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_statusbarcolor-0.0.4/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/front_end-0.1.4/lib" />
@@ -477,6 +507,7 @@
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/mime-0.9.6+2/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/multi_server_socket-1.0.2/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/node_preamble-1.4.4/lib" />
+      <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/open_iconic_flutter-0.3.0/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/package_config-1.0.5/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.3.2/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/package_resolver-1.0.4/lib" />
@@ -501,6 +532,7 @@
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.1.6/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/utf-0.9.0+5/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.0.8/lib" />
+      <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.6.5/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/vm_service_client-0.2.6/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/watcher-0.9.7+10/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/web_socket_channel-1.0.9/lib" />

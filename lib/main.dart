@@ -120,7 +120,9 @@ class HomeAppState extends State<KaminoApp> {
           onPressed: () {
             Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SearchView())
+                MaterialPageRoute(builder: (context) => SearchView(
+                    query: ""
+                ))
             );
           }
       ),
@@ -162,7 +164,7 @@ class HomeAppState extends State<KaminoApp> {
 
 
       // Body content
-      body: HomePage().build()
+      body: HomePage().build(context)
     );
   }
 }

@@ -13,6 +13,10 @@ dependencies:
   # App Dependencies
   package_info: ^0.3.2
   flutter_statusbarcolor: any
+  chewie_nbtx:
+    git:
+      url: git://github.com/NBTX/chewie_nbtx.git
+      ref: master
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +43,10 @@ flutter:
 
   assets:
     - images/header.png
+    - images/easteregg/background.jpg
+    - images/easteregg/socks.png
+
+
   fonts:
     - family: GlacialIndifference
       fonts:
@@ -77,4 +85,9 @@ flutter:
 # Set app icons
 flutter_icons:
   android: true
+  ios: true
   image_path: "images/logo.png"
+  image_path_android: "images/logo_android.png"
+  image_path_ios: "images/logo_ios.png"
+  adaptive_icon_background: "#FF4E5D73"
+  adaptive_icon_foreground: "images/logo_foreground.png"

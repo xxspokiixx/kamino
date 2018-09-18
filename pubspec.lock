@@ -43,6 +43,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.2"
+  chewie_nbtx:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: "663e425a8ad6d2f4a80c5cbb9aa9ba36b26905a8"
+      url: "git://github.com/NBTX/chewie_nbtx.git"
+    source: git
+    version: "0.7.0-a1"
   collection:
     dependency: transitive
     description:
@@ -92,6 +101,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_android_pip:
+    dependency: transitive
+    description:
+      name: flutter_android_pip
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -230,6 +246,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.4"
+  open_iconic_flutter:
+    dependency: transitive
+    description:
+      name: open_iconic_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0"
   package_config:
     dependency: transitive
     description:
@@ -403,6 +426,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
+  video_player:
+    dependency: transitive
+    description:
+      name: video_player
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.5"
   vm_service_client:
     dependency: transitive
     description:
@@ -440,4 +470,4 @@ packages:
     version: "2.1.15"
 sdks:
   dart: ">=2.0.0 <=2.1.0-dev.1.0.flutter-ccb16f7282"
-  flutter: ">=0.1.4 <2.0.0"
+  flutter: ">=0.2.5 <2.0.0"
