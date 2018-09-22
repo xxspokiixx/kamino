@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:kamino/animation/transition.dart';
 import 'package:kamino/ui/uielements.dart';
+import 'package:kamino/view/player.dart';
 
 class HomePage {
 
-  build(){
+  build(BuildContext context){
     return new ListView(
         children: [
           new Card(
@@ -30,6 +32,19 @@ class HomePage {
                   )
                 ],
               )
+          ),
+
+          new MaterialButton(
+            onPressed: (){
+              Navigator.push(
+                  context,
+                  FadeRoute(builder: (context) => PlayerView(
+                    url: "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4"
+                  ))
+              );
+            },
+            child: new Text("Debug Player"),
+            color: Colors.lightBlue,
           )
         ]
     );

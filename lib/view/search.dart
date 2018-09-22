@@ -1,126 +1,137 @@
 import 'package:flutter/material.dart';
-import 'package:kamino/main.dart';
-import 'package:kamino/ui/uielements.dart';
-import 'package:http/http.dart' as http;
-import 'dart:async';
-import 'dart:convert';
+import 'search/provider.dart';
+import 'search/model.dart';
+import 'search/bloc.dart';
+
+const primaryColor = const Color(0xFF4E5D72);
+const secondaryColor = const Color(0xFF303A47);
+const backgroundColor = const Color(0xFF303030);
 
 class SearchView extends StatefulWidget {
   @override
-  _SearchViewState createState() => new _SearchViewState();
+  SearchViewState createState() => new SearchViewState();
 }
 
-class _SearchViewState extends State<SearchView> {
+class SearchViewState extends State<SearchView> {
 
-  TextEditingController _searchField = new TextEditingController();
-  GlobalKey<ScaffoldState> _key;
-  var _screenBody;
-  List<ResultsModel> searchResults = [];
-  int searchState = 0;
-
-  Future<List<ResultsModel>> getResults() async{
-
-    List<ResultsModel> searchResults = [];
-
-    if (_searchField.text.isNotEmpty != null) {
-      searchResults.clear();
-      var data = await http.get(
-          "http://api.tvmaze.com/search/shows?q=${_searchField.text}");
-      var jsonData = jsonDecode(data.body);
-
-
-      print(jsonData[0]["show"]["image"]["medium"].toString());
-
-      for (var u in jsonData) {
-        ResultsModel result = ResultsModel(u["show"]["image"]["medium"].toString(),
-            u["show"]["name"].toString(),u["show"]["externals"]["imdb"].toString(),
-            u["show"]["externals"]["thetvdb"].toString());
-        searchResults.add(result);
-        //print(u["show"]["name"]);
-      }
-
-
-      print("I found : " + searchResults.length.toString());
-    }
+  Widget _tvStream(BuildContext context, var movieBloc) {
+    return StreamBuilder(
+      stream: movieBloc.results,
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: CircularProgressIndicator());
+        } else if (snapshot.data == null) {
+          return Center(child: CircularProgressIndicator());
+        } else {
+          return GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              childAspectRatio: 0.76,
+            ),
+            itemCount: snapshot.data.length,
+            itemBuilder: (BuildContext context, int index) {
+              return InkWell(
+                onTap: () => print(snapshot.data[index].mediaType),
+                splashColor: Colors.blueAccent,
+                child: Card(
+                  color: backgroundColor,
+                  child: Container(
+                    child: Padding(
+                      padding: EdgeInsets.all(0.0),
+                      child: ClipRRect(
+                        borderRadius: new BorderRadius.circular(5.0),
+                        child: Center(
+                            child: snapshot.data[index].posterPath != null
+                                ? Image.network(
+                              "http://image.tmdb.org/t/p/w500" +
+                                  snapshot.data[index].posterPath,
+                              fit: BoxFit.fill,
+                              height: 752.0,
+                              width: 500.0,
+                            )
+                                : Container()
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            },
+          );
+        }
+      },
+    );
   }
-
-  _callAsync(){
-    //print("Testing");
-    getResults();
-    print("$searchResults         TESTING!!!!!!!!!!!!!!!");
-
-    //if there is data change the body
-    if (searchResults.length > 1){
-      //generate gridview
-      setState(() {
-       _screenBody = Container(
-           child: GridView.builder(
-             itemCount: searchResults.length == null ? 0 : searchResults.length,
-               gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                   crossAxisCount: 3),
-               itemBuilder: (BuildContext context, int index){
-                 return new GestureDetector(
-                   onTap: null,
-                   onLongPress: null,
-                   child: _resultsCard(context, index),
-                 );
-               }));
-      });
-
-    }else{
-      setState(() {
-        _screenBody = Center(child: Text("No Matches"),);
-      });
-    }
-  }
-
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: new TextField(
-          autofocus: true,
-          style: new TextStyle(
-            fontSize: 18.0,
+    final movieBloc = MovieBloc(API());
+    TextEditingController _searchControl = TextEditingController();
+
+    return MovieProvider(
+      movieBloc: MovieBloc(API()),
+      child: MaterialApp(
+        theme: new ThemeData(
+            brightness: Brightness.dark,
+            primaryColor: primaryColor,
+            accentColor: secondaryColor,
+            splashColor: Colors.blueAccent,
+            highlightColor: Colors.white,
+            backgroundColor: backgroundColor
+        ),
+        home: Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title: Padding(
+              padding: const EdgeInsets.only(right: 17.0),
+              child: new TextField(
+                controller: _searchControl,
+                autofocus: true,
+                cursorColor: Colors.white,
+                style: new TextStyle(
+                  fontSize: 18.0,
+                ),
+                decoration: InputDecoration(
+                    hintText: "Enter TV Show or Movie..."
+                ),
+              ),
+            ),
+            actions: <Widget>[
+              IconButton(icon: Icon(Icons.search),
+                  splashColor: Colors.white,
+                  onPressed: () {
+                    movieBloc.query.add(_searchControl.text);
+                  })
+            ],
+            // MD2: make the color the same as the background.
+            backgroundColor: backgroundColor,
+            // Remove box-shadow
+            elevation: 0.00,
           ),
-          onSubmitted: _callAsync(),
-          controller: _searchField,
-          decoration: InputDecoration(
-            hintText: "Enter TV Show or Movie..."
+          body: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Container(
+                  child: Center(
+                    child: StreamBuilder(
+                      stream: movieBloc.log,
+                      builder: (context, snapshot) =>
+                          Container(
+                            child: Text(snapshot?.data ?? ''),
+                          ),
+                    ),
+                  ),
+                ),
+              ),
+              Flexible(child: _tvStream(context, movieBloc))
+            ],
           ),
         ),
-        // MD2: make the color the same as the background.
-        backgroundColor: backgroundColor,
-        // Remove box-shadow
-        elevation: 0.00
-      ),
-      body: _screenBody,
-    );
-  }
-
-  Widget _resultsCard(BuildContext context, int index){
-    //print("index is $index          Array is ${searchResults[index].getImage}");
-    return new Card(
-      elevation: 5.0,
-      child: new Column(
-        children: <Widget>[
-          Image.network(searchResults[index].getImage)
-        ],
       ),
     );
   }
-
 }
 
-class ResultsModel{
-  final String image;
-  final String title;
-  final String imdb;
-  final String thetvdb;
-
-  ResultsModel(this.image,this.title,this.imdb,this.thetvdb);
-
-  String get getImage => this.image;
-}
