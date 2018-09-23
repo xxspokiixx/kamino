@@ -14,7 +14,7 @@ dependencies:
   package_info: ^0.3.2
   flutter_statusbarcolor: any
   chewie_nbtx:
-    git:
+  f  git:
       url: git://github.com/NBTX/chewie_nbtx.git
       ref: master
 

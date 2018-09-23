@@ -48,7 +48,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "663e425a8ad6d2f4a80c5cbb9aa9ba36b26905a8"
+      resolved-ref: "185d3f94e614e4a48e1dc4828379614463036cb1"
       url: "git://github.com/NBTX/chewie_nbtx.git"
     source: git
     version: "0.7.0-a1"

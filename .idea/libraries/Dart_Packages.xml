@@ -47,7 +47,7 @@
         <entry key="chewie_nbtx">
           <value>
             <list>
-              <option value="D:/sdk/flutter/.pub-cache/git/chewie_nbtx-663e425a8ad6d2f4a80c5cbb9aa9ba36b26905a8/lib" />
+              <option value="D:/sdk/flutter/.pub-cache/git/chewie_nbtx-185d3f94e614e4a48e1dc4828379614463036cb1/lib" />
             </list>
           </value>
         </entry>
@@ -474,7 +474,7 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://D:/sdk/flutter/.pub-cache/git/chewie_nbtx-663e425a8ad6d2f4a80c5cbb9aa9ba36b26905a8/lib" />
+      <root url="file://D:/sdk/flutter/.pub-cache/git/chewie_nbtx-185d3f94e614e4a48e1dc4828379614463036cb1/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/git/dart_config-c5727795659e886a7db8b39a14e2c8987280fe1f/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-0.32.4/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/archive-2.0.4/lib" />
