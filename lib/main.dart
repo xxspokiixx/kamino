@@ -66,7 +66,6 @@ class HomeAppState extends State<KaminoApp> {
         // Remove box-shadow
         elevation: 0.00
       ),
-
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -110,9 +109,7 @@ class HomeAppState extends State<KaminoApp> {
           ],
         )
       ),
-
-
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.search, size: 32.0),
           backgroundColor: Theme.of(context).primaryColor,
