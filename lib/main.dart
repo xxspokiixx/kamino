@@ -17,6 +17,7 @@ import 'pages/home.dart';
 const primaryColor = const Color(0xFF4E5D72);
 const secondaryColor = const Color(0xFF303A47);
 const backgroundColor = const Color(0xFF303030);
+const highlightColor = const Color(0xFF696969);
 const appName = "ApolloTV";
 
 void main(){
@@ -38,8 +39,8 @@ void main(){
       brightness: Brightness.dark,
       primaryColor: primaryColor,
       accentColor: secondaryColor,
-      splashColor: Colors.white,
-      highlightColor: Colors.white,
+      splashColor: backgroundColor,
+      highlightColor: highlightColor,
       backgroundColor: backgroundColor
     ),
 
@@ -117,9 +118,7 @@ class HomeAppState extends State<KaminoApp> {
           onPressed: () {
             Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SearchView(
-                    query: ""
-                ))
+                MaterialPageRoute(builder: (context) => SearchView())
             );
           }
       ),

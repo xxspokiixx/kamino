@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.32.4"
+  apollotv_player:
+    dependency: "direct main"
+    description:
+      path: "..\\apollotv_player"
+      relative: true
+    source: path
+    version: "0.0.1"
   archive:
     dependency: transitive
     description:
@@ -43,15 +50,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.2"
-  chewie_nbtx:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "185d3f94e614e4a48e1dc4828379614463036cb1"
-      url: "git://github.com/NBTX/chewie_nbtx.git"
-    source: git
-    version: "0.7.0-a1"
   collection:
     dependency: transitive
     description:
@@ -101,13 +99,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_android_pip:
-    dependency: transitive
-    description:
-      name: flutter_android_pip
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.2"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -246,13 +237,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.4"
-  open_iconic_flutter:
-    dependency: transitive
-    description:
-      name: open_iconic_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.0"
   package_config:
     dependency: transitive
     description:

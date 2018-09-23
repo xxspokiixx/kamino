@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android.iml" filepath="$PROJECT_DIR$/android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_android_pip-0.0.2/android/flutter_android_pip.iml" filepath="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_android_pip-0.0.2/android/flutter_android_pip.iml" />
       <module fileurl="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_statusbarcolor-0.0.4/android/flutter_statusbarcolor.iml" filepath="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_statusbarcolor-0.0.4/android/flutter_statusbarcolor.iml" />
       <module fileurl="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.3.2/android/package_info.iml" filepath="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.3.2/android/package_info.iml" />
       <module fileurl="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.6.5/android/video_player.iml" filepath="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.6.5/android/video_player.iml" />

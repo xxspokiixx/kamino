@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kamino/main.dart';
 import 'search/provider.dart';
 import 'search/model.dart';
 import 'search/bloc.dart';
-
-const primaryColor = const Color(0xFF4E5D72);
-const secondaryColor = const Color(0xFF303A47);
-const backgroundColor = const Color(0xFF303030);
 
 class SearchView extends StatefulWidget {
   @override
@@ -72,13 +69,17 @@ class SearchViewState extends State<SearchView> {
 
     return MovieProvider(
       movieBloc: MovieBloc(API()),
+
       child: MaterialApp(
+        // Remove debug banner - because it's annoying.
+        debugShowCheckedModeBanner: false,
+
         theme: new ThemeData(
             brightness: Brightness.dark,
             primaryColor: primaryColor,
             accentColor: secondaryColor,
-            splashColor: Colors.blueAccent,
-            highlightColor: Colors.white,
+            splashColor: Colors.black,
+            highlightColor: highlightColor,
             backgroundColor: backgroundColor
         ),
         home: Scaffold(
