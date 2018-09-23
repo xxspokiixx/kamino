@@ -51,6 +51,13 @@
             </list>
           </value>
         </entry>
+        <entry key="chewie_nbtx">
+          <value>
+            <list>
+              <option value="D:/sdk/flutter/.pub-cache/git/chewie_nbtx-185d3f94e614e4a48e1dc4828379614463036cb1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="collection">
           <value>
             <list>
@@ -104,6 +111,13 @@
           <value>
             <list>
               <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_android_pip-0.0.2/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="flutter_android_pip">
+          <value>
+            <list>
+              <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_android_pip-0.0.2/lib" />
             </list>
           </value>
         </entry>
@@ -251,6 +265,13 @@
           <value>
             <list>
               <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/open_iconic_flutter-0.3.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="open_iconic_flutter">
+          <value>
+            <list>
+              <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/open_iconic_flutter-0.3.0/lib" />
             </list>
           </value>
         </entry>
@@ -440,6 +461,13 @@
           <value>
             <list>
               <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.6.5/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="video_player">
+          <value>
+            <list>
+              <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.6.5/lib" />
             </list>
           </value>
         </entry>

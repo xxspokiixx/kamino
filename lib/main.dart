@@ -117,7 +117,9 @@ class HomeAppState extends State<KaminoApp> {
           onPressed: () {
             Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SearchView())
+                MaterialPageRoute(builder: (context) => SearchView(
+                    query: ""
+                ))
             );
           }
       ),
