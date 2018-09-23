@@ -44,7 +44,10 @@ class _SettingsViewState extends State<SettingsView> {
             // MD2: make the color the same as the background.
             backgroundColor: backgroundColor,
             // Remove box-shadow
-            elevation: 0.00
+            elevation: 0.00,
+
+            // Center title
+            centerTitle: true,
         ),
         body: new Builder(
           builder: (BuildContext context){
