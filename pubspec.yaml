@@ -15,7 +15,9 @@ dependencies:
   package_info: ^0.3.2
   flutter_statusbarcolor: any
   apollotv_player:
-    path: ../apollotv_player/
+    git:
+      url: git://github.com/NBTX/apollotv_player.git
+      ref: master
 
 dev_dependencies:
   flutter_test:

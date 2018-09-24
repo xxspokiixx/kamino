@@ -11,9 +11,11 @@ packages:
   apollotv_player:
     dependency: "direct main"
     description:
-      path: "..\\apollotv_player"
-      relative: true
-    source: path
+      path: "."
+      ref: master
+      resolved-ref: "22a7db5800e9c59cab63b81c3843be11adad60a3"
+      url: "git://github.com/NBTX/apollotv_player.git"
+    source: git
     version: "0.0.1"
   archive:
     dependency: transitive
