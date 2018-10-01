@@ -14,8 +14,8 @@ dependencies:
   # App Dependencies
   package_info: ^0.3.2
   flutter_statusbarcolor: any
-  apollotv_player:
-    path: ../apollotv_player/
+  #apollotv_player:
+  #  path: ../apollotv_player/
 
 dev_dependencies:
   flutter_test:

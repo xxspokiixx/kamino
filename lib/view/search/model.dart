@@ -43,6 +43,7 @@ class API {
         .then((movies) => movies.forEach((movie) => list.add(Movie.fromJson(movie))));
 
 
+    /*
     for (int i = 0; i < list.length; i++){
       if (list[i].posterPath.toString() == null){
         list.removeAt(i);
@@ -50,11 +51,28 @@ class API {
 
     }
 
+    List<int> tempArray = List();
+
     for (int i = 0; i < list.length; i++){
       if (list[i].mediaType.toString() == "person"){
-        list.removeAt(i);
+        //list.removeAt(i);
+        print(list[i].title);
+        tempArray.add(i);
       }
     }
+
+    */
+
+
+    list.removeWhere((item) => item.mediaType != "movie" && item.mediaType != "tv");
+    list.removeWhere((item) => item.id == null);
+
+    /*
+    print(tempArray);
+    for (int i in tempArray){
+      list.removeAt(i);
+    }
+    */
 
     return list;
   }

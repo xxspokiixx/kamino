@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kamino/animation/transition.dart';
 import 'package:kamino/ui/uielements.dart';
-import 'package:apollotv_player/apollotv_player.dart';
+//import 'package:apollotv_player/apollotv_player.dart';
 
 class HomePage {
 
@@ -34,18 +34,20 @@ class HomePage {
               )
           ),
 
+          /*
           new MaterialButton(
             onPressed: (){
               Navigator.push(
                   context,
                   FadeRoute(builder: (context) => ApolloTVPlayer(
                     url: "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4"
-                  ))
+                  )),
               );
             },
             child: new Text("Debug Player"),
             color: Colors.lightBlue,
           )
+          */
         ]
     );
   }
