@@ -17,16 +17,15 @@ class _movieScreenModel {
 }
 
 
-
 class MovieOverview extends StatelessWidget {
-  //final int id;
-  //MovieOverview(this.id);
+  final int id;
+  MovieOverview(this.id);
 
   Future<List<_movieScreenModel>> _getOverview() async {
     List<_movieScreenModel> _data;
     Map json;
 
-    String url = "https://api.themoviedb.org/3/movie/299536?"
+    String url = "https://api.themoviedb.org/3/movie/$id?"
         "api_key=b52e4d8c6e0b014ced7de2f7ea6f4284&language=en-US";
 
     var res = await http.get(url);

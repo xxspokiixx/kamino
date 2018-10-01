@@ -17,6 +17,11 @@ dependencies:
   #apollotv_player:
   #  path: ../apollotv_player/
 
+  apollotv_player:
+    git:
+      url: git://github.com/NBTX/apollotv_player.git
+      ref: master
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
