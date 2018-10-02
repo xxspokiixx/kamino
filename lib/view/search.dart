@@ -16,22 +16,17 @@ class SearchViewState extends State<SearchView> {
   final TextEditingController _searchControl = TextEditingController();
 
   _openContentScreen(BuildContext context, AsyncSnapshot snapshot, int index) {
-    /*
+
     if (snapshot.data[index].mediaType == "tv"){
-      Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => MovieOverview())
-      );
+      print("TV Show");
     } else {
-      /*
       Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SearchView())
+          MaterialPageRoute(builder: (context) => MovieOverview(snapshot.data[index].id))
       );
-      */
       print("Movie");
     }
-    */
+
   }
 
   Widget _tvStream(BuildContext context, var movieBloc) {
@@ -69,7 +64,7 @@ class SearchViewState extends State<SearchView> {
               itemBuilder: (BuildContext context, int index) {
 
                 return InkWell(
-                  onTap: () => print(snapshot.data[index].id),
+                  onTap: () => print(_openContentScreen(context,snapshot, index)),
                   splashColor: Colors.white,
                   child: Card(
                       child: Stack(
