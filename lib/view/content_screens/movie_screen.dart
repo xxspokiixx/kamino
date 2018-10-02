@@ -25,6 +25,9 @@ class MovieOverview extends StatelessWidget {
   MovieOverview(this.id);
 
   Future<List<_movieScreenModel>> _getOverview() async {
+
+    print("I am using....... $id");
+
     List<_movieScreenModel> _data = [];
     Map json, _json, _recomJson;
 
@@ -54,9 +57,9 @@ class MovieOverview extends StatelessWidget {
     _recomJson = jsonDecode(recomRes.body);
 
     _movieScreenModel _dataMine = new _movieScreenModel(
-        json["belongs_to_collection"]["id"],
-        json["belongs_to_collection"]["poster_path"],
-        json["belongs_to_collection"]["backdrop_path"],
+        id,
+        json["poster_path"],
+        json["backdrop_path"],
         json["release_date"], json["overview"], json["runtime"],
         json["title"], json["homepage"], json["imdb_id"], _genres,
         json["vote_count"] != null ? json["vote_count"]: 0,

@@ -14,18 +14,21 @@ class SearchViewState extends State<SearchView> {
 
   final movieBloc = MovieBloc(API());
   final TextEditingController _searchControl = TextEditingController();
+  GlobalKey<ScaffoldState> _key = new GlobalKey();
 
   _openContentScreen(BuildContext context, AsyncSnapshot snapshot, int index) {
+    print(snapshot.data[index].showID);
 
     if (snapshot.data[index].mediaType == "tv"){
       print("TV Show");
     } else {
       Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MovieOverview(snapshot.data[index].id))
+          MaterialPageRoute(builder: (context) => MovieOverview(snapshot.data[index].showID))
       );
       print("Movie");
     }
+
 
   }
 
@@ -64,7 +67,7 @@ class SearchViewState extends State<SearchView> {
               itemBuilder: (BuildContext context, int index) {
 
                 return InkWell(
-                  onTap: () => print(_openContentScreen(context,snapshot, index)),
+                  onTap: () => _openContentScreen(context,snapshot, index),
                   splashColor: Colors.white,
                   child: Card(
                       child: Stack(

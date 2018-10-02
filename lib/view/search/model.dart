@@ -53,15 +53,14 @@ class API {
 
     List<int> tempArray = List();
 
+    */
+
     for (int i = 0; i < list.length; i++){
-      if (list[i].mediaType.toString() == "person"){
-        //list.removeAt(i);
+      if (list[i].showID ==  null){
+        list.removeAt(i);
         print(list[i].title);
-        tempArray.add(i);
       }
     }
-
-    */
 
 
     list.removeWhere((item) => item.mediaType != "movie" && item.mediaType != "tv");
