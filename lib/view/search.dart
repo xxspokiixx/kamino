@@ -5,6 +5,12 @@ import 'search/model.dart';
 import 'search/bloc.dart';
 import 'content_screens/movie_screen.dart';
 
+const primaryColor = const Color(0xFF4E5D72);
+const secondaryColor = const Color(0xFF303A47);
+const backgroundColor = Colors.black;
+const highlightColor = Colors.white;
+const appName = "ApolloTV";
+
 class SearchView extends StatefulWidget {
   @override
   SearchViewState createState() => new SearchViewState();

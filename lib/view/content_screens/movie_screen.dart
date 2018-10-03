@@ -1,8 +1,30 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:flutter_rating/flutter_rating.dart';
+
+const primaryColor = const Color(0xFF4E5D72);
+const secondaryColor = const Color(0xFF303A47);
+const backgroundColor = Colors.black;
+const highlightColor = Colors.white;
+const appName = "ApolloTV";
+
+void main(){
+  runApp(new MaterialApp(
+    title: appName,
+    home: MovieOverview(299536),
+    theme: new ThemeData(
+      brightness: Brightness.dark,
+      primarySwatch: Colors.blue,
+      accentColor: Colors.white,
+      //accentColor: const Color(0xFFFF5959),
+    ),
+
+    // Remove debug banner - because it's annoying.
+    debugShowCheckedModeBanner: false,
+  ));
+}
 
 class _movieScreenModel {
   final String posterPath, backdropPath, title;
@@ -25,9 +47,6 @@ class MovieOverview extends StatelessWidget {
   MovieOverview(this.id);
 
   Future<List<_movieScreenModel>> _getOverview() async {
-
-    print("I am using....... $id");
-
     List<_movieScreenModel> _data = [];
     Map json, _json, _recomJson;
 
@@ -57,9 +76,7 @@ class MovieOverview extends StatelessWidget {
     _recomJson = jsonDecode(recomRes.body);
 
     _movieScreenModel _dataMine = new _movieScreenModel(
-        id,
-        json["poster_path"],
-        json["backdrop_path"],
+        json["id"], json["poster_path"], json["backdrop_path"],
         json["release_date"], json["overview"], json["runtime"],
         json["title"], json["homepage"], json["imdb_id"], _genres,
         json["vote_count"] != null ? json["vote_count"]: 0,
@@ -71,107 +88,42 @@ class MovieOverview extends StatelessWidget {
     return _data;
   }
 
-  Widget _backDropImage(AsyncSnapshot snapshot) {
+  Widget _backDropImage(AsyncSnapshot snapshot, double width) {
     return Container(
       child: snapshot.data[0].backdropPath != null ?
       Image.network("http://image.tmdb.org/t/p/w500" +
           snapshot.data[0].backdropPath,
-        fit: BoxFit.cover,
-        height: 240.0,
+        fit: BoxFit.fill,
+        height: 180.0,
+        width: width,
       ) : Image.asset("assets/images/no_image_detail.jpg",
-        fit: BoxFit.cover,
-        height: 240.0,
+        fit: BoxFit.fill,
+        height: 180.0,
+        width: width,
       ),
     );
   }
 
-
-  Widget _infoCard(BuildContext context, AsyncSnapshot snapshot) {
+  Widget _storyline(AsyncSnapshot snapshot){
+    //Overview Text
     return Padding(
-      padding: const EdgeInsets.only(right: 18.0),
-      child: Card(
-        elevation: 7.0,
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 25.0, right: 47.0),
-              child: Text(snapshot.data[0].title != null ? snapshot.data[0].title :
-              "Title Unavailable", textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, fontFamily: "Roboto"),
-                maxLines: 1, overflow: TextOverflow.ellipsis,
-              ),
-            ),
-
-            //Overview Text
-            Padding(
-              padding: const EdgeInsets.only(top: 7.0),
-              child: ExpansionTile(
-                title: Text("Storyline", style: TextStyle(
-                    fontSize: 17.0, fontFamily: "Roboto"),
-                ),
-                children: <Widget>[
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 17.0, right: 20.0, bottom: 17.0),
-                      child: Text(snapshot.data[0].overview != null ? snapshot.data[0].overview :
-                      "Storyline Unavailable",
-                        style: TextStyle(fontSize: 15.0, fontFamily: "Roboto"),
-                        maxLines: 20, overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            //Genre ListView
-            Padding(
-              padding: const EdgeInsets.only(left: 15.0, top: 10.0, bottom: 13.0),
-              child: SizedBox(
-                height: 40.0,
-                child: _genreList(snapshot),
-              ),
-            ),
-
-            //Rating stars
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20.0, bottom: 17.0),
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: Text(snapshot.data[0].rating.toString(),
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white, fontSize: 16.0,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: _starRating(snapshot),
-                    ),
-                    Text("(${snapshot.data[0].vote_count})",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey, fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-
-            //Runtime and year info
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0, bottom: 15.0),
-              child: _runtimeAndYear(snapshot),
-            )
-
-
-          ],
+      padding: const EdgeInsets.only(top: 7.0),
+      child: ExpansionTile(
+        title: Text("Storyline", style: TextStyle(
+            fontSize: 17.0, fontFamily: "Roboto"),
         ),
+        children: <Widget>[
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 17.0, right: 20.0, bottom: 17.0),
+              child: Text(snapshot.data[0].overview != null ? snapshot.data[0].overview :
+              "Storyline Unavailable",
+                style: TextStyle(fontSize: 15.0, fontFamily: "Roboto"),
+                maxLines: 20, overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -187,13 +139,14 @@ class MovieOverview extends StatelessWidget {
         itemBuilder: (BuildContext context, int index){
           return Container(
             child: Padding(
-              padding: const EdgeInsets.only(left: 7.0),
+              padding: index != 0 ? EdgeInsets.only(left: 7.0, right: 2.0) :
+              EdgeInsets.only(left: 21.0, right: 2.0),
               child: new Chip(
                 label: Text(
                   snapshot.data[0].genre[index]["name"],
-                  style: TextStyle(color: Colors.black, fontSize: 15.0),
+                  style: TextStyle(color: Colors.white, fontSize: 15.0),
                 ),
-                backgroundColor: Colors.white,
+                backgroundColor: Colors.grey,
               ),
             ),
           );
@@ -203,67 +156,43 @@ class MovieOverview extends StatelessWidget {
   }
 
   Widget _starRating(AsyncSnapshot snapshot) {
-    //double rating = (snapshot.data[0].rating).toDouble();
-    print(snapshot.data[0].rating);
+    double rating = (snapshot.data[0].rating).toDouble();
 
-
-    return new StarRating(
-      rating: 3.2,
-      color: Colors.yellow,
-      borderColor: Colors.transparent,
-      size: 26.0,
-      starCount: 5,
-    );
-  }
-
-  Widget _runtimeAndYear(AsyncSnapshot snapshot) {
-    return Column(
+    return Row(
       children: <Widget>[
-        Row(
-          children: <Widget>[
-            Text("Runtime: ",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 17.0,
-              ),
-            ),
 
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
-              child: new Chip(label: Text(snapshot.data[0].runtime == null ?
-              "Unavialable" : snapshot.data[0].runtime.toString()+" minutes",
-                style: TextStyle(color: Colors.black, fontSize: 17.0,
-                ),
-              ),
-                backgroundColor: Colors.white,
-              ),
+        Padding(
+          padding: const EdgeInsets.only(top: 7.0),
+          child: Text(snapshot.data[0].rating.toString() == null ? " " :
+          snapshot.data[0].rating.toString(),
+            style: TextStyle(
+                color: Colors.redAccent, fontSize: 21.0,
+                fontWeight: FontWeight.bold
             ),
-          ],
+          ),
         ),
 
-        //Release Year
-        Row(
-          children: <Widget>[
-            Text("Release Date: ",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 17.0,
-              ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: new Chip(label: Text(snapshot.data[0].release_date == null ?
-              "Unavialable" : snapshot.data[0].release_date.toString(),
-                style: TextStyle(color: Colors.black, fontSize: 17.0,
-                ),
-              ),
-                backgroundColor: Colors.white,
-              ),
-            ),
-          ],
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0),
+          child: new StarRating(
+            rating: rating / 2,
+            color: Colors.redAccent,
+            borderColor: primaryColor,
+            size: 26.0,
+            starCount: 5,
+          ),
         ),
 
+        Padding(
+          padding: const EdgeInsets.only(top: 0.0, left: 12.0),
+          child: Text(snapshot.data[0].vote_count.toString() == null ? " " :
+          "("+snapshot.data[0].vote_count.toString()+")",
+            style: TextStyle(
+                color: Colors.redAccent, fontSize: 19.0,
+                fontWeight: FontWeight.bold
+            ),
+          ),
+        ),
 
       ],
     );
@@ -271,87 +200,161 @@ class MovieOverview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
-      body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              FutureBuilder(
-                  future: _getOverview(),
-                  builder: (BuildContext context, AsyncSnapshot snapshot){
-                    if (snapshot.hasData) {
+      body: FutureBuilder(
+          future: _getOverview(),
+          builder: (BuildContext context, AsyncSnapshot snapshot){
+            if (snapshot.hasData) {
 
-                      return Container(
-                        child: Column(
-                          children: <Widget>[
-                            Stack(
-                              children: <Widget>[
-                                _backDropImage(snapshot),
-
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 170.0, bottom: 30.0, left: 16.0),
-                                  child: _infoCard(context, snapshot),
-                                ),
-                              ],
-                            ),
-
-                            _similarMovies(context, snapshot),
-
-
-                          ],
+              return NestedScrollView(
+                headerSliverBuilder:
+                    (BuildContext context, bool innerBoxIsScrolled) {
+                  return <Widget>[
+                    SliverAppBar(
+                      actions: <Widget>[
+                        //IconButton(icon: Icon(Icons.share, color: Colors.white,), onPressed: null),
+                        IconButton(icon: Icon(Icons.favorite_border, color: Colors.white,), onPressed: null),
+                      ],
+                      expandedHeight: 180.0,
+                      floating: false,
+                      pinned: true,
+                      flexibleSpace: FlexibleSpaceBar(
+                          centerTitle: true,
+                          title: Padding(
+                            padding: const EdgeInsets.only(right: 0.0),
+                            child: Text(snapshot.data[0].title != null ?
+                            snapshot.data[0].title :
+                            "Title Unavailable",
+                                style: TextStyle(
+                                    fontSize: 16.0, fontWeight: FontWeight.bold,
+                                    fontFamily: "Roboto"),
+                                maxLines: 1, overflow: TextOverflow.ellipsis,
+                                textDirection: TextDirection.ltr),
+                          ),
+                          background: _backDropImage(snapshot, width)),
+                    ),
+                  ];
+                },
+                body: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: SizedBox(
+                          width: width,
+                          height: 40.0,
+                          child: _genreList(snapshot),
                         ),
-                      );
+                      ),
 
-                    } else if (snapshot.hasError) {
-                      return new Center(child:Text("${snapshot.error}"));
-                    }
+                      //Ratings
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5.0, left: 22.0, bottom: 15.0),
+                        child: _starRating(snapshot),
+                      ),
 
-                    return Center(child: new CircularProgressIndicator());
-                  }
-              ),
-            ],
-          )
+                      //Details Card
+                      Padding(
+                        padding: const EdgeInsets.only(left: 18.0, right: 18.0, bottom: 10.0),
+                        child: Card(
+                          child: ExpansionTile(
+                            title: Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 8.0, right: 10.0, left: 0.0, bottom: 10.0
+                              ),
+                              child: Text("Details", style: TextStyle(
+                                  fontSize: 17.0,fontFamily: "Roboto")),
+                            ),
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 150.0, bottom: 15.0),
+                                    child: Text(snapshot.data[0].release_date == null ? "  ":
+                                    "Release Year: "+
+                                        snapshot.data[0].release_date.toString()
+                                            .substring(0,4), style: TextStyle(
+                                        fontSize: 17.0,fontFamily: "Roboto")
+                                    ),
+                                  ),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 199.0, bottom: 15.0),
+                                    child: Text(snapshot.data[0].runtime == null ? "  ":
+                                    snapshot.data[0].runtime.toString()+" minutes",
+                                        style: TextStyle(
+                                            fontSize: 17.0,fontFamily: "Roboto")
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.only(left: 18.0, right: 18.0),
+                        child: Card(child: _storyline(snapshot),),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0, bottom: 0.0),
+                        child: SizedBox(
+                            height: 266.0,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 0.0),
+                              child: _similarMovies(context, snapshot),
+                            )
+                        ),
+                      ),
+
+                    ],
+                  ),
+                ),
+              );
+
+            } else if (snapshot.hasError) {
+              return new Center(child:Text("${snapshot.error}"));
+            }
+
+            return Center(
+                child: new CircularProgressIndicator(
+                  backgroundColor: Colors.white,));
+          }
       ),
       floatingActionButton: new FloatingActionButton(
-        onPressed: _playButtonActivity(),
+        onPressed: () =>  print("The id is  $id"), backgroundColor: Colors.red,
+        elevation: 13.0,
         child: Icon(
-          Icons.play_arrow, color: Colors.white,
-          size: 36.0,
-        ),
-        elevation: 8.0,
-        backgroundColor: Colors.red,
+            Icons.play_arrow, color: Colors.white, size: 46.0),
       ),
     );
-  }
-
-  _playButtonActivity(){
-
   }
 
   Widget _similarMovies(BuildContext context, AsyncSnapshot snapshot){
     return Column(
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(left: 39.0),
-          child: Container(
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 173.0),
-                  child: Text("Similar Movies",
-                    style: TextStyle(
-                        fontSize: 21.0, fontWeight: FontWeight.bold,
-                        fontFamily: "Roboto"), maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+        Container(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0, right: 174.0),
+                child: Text("Similar Movies",
+                  style: TextStyle(
+                      fontSize: 17.0, fontFamily: "Roboto"),
+                  maxLines: 1, overflow: TextOverflow.ellipsis,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
 
         //Search Results
         Padding(
-          padding: const EdgeInsets.only(top: 18.0, bottom: 10.0),
+          padding: const EdgeInsets.only(top: 18.0, bottom: 0.0),
           child: SizedBox (
             child: _genRecomCards(context, snapshot),
             height: 208.0,
@@ -376,6 +379,7 @@ class MovieOverview extends StatelessWidget {
               padding: index == 0 ? const EdgeInsets.only(left: 18.0) :
               const EdgeInsets.only(left: 0.0),
               child: InkWell(
+                onTap: () => print(snapshot.data[0].recommendations[index]["id"]),
                 splashColor: Colors.white,
                 child: Container(
                   child: Column(
@@ -409,7 +413,26 @@ class MovieOverview extends StatelessWidget {
       );
 
     }else {
-      return Container();
+      return Container(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 30.0),
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Center(
+                  child: Icon(Icons.movie,size: 80.0, color: Colors.grey,),
+                ),
+                Center(
+                  child: Text("No Recommedations Found",
+                    style: TextStyle(
+                        fontSize: 20.0),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
     }
   }
 
