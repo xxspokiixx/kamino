@@ -19,8 +19,6 @@ class Movie {
         title = json["original_name"] == null ? json["name"]:json["original_name"],
         posterPath = json["poster_path"],
         backdropPath = json["backdrop_path"];
-
-
 }
 
 class API {

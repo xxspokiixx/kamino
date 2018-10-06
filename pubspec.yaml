@@ -14,10 +14,11 @@ dependencies:
   # App Dependencies
   package_info: ^0.3.2
   flutter_statusbarcolor: any
-  apollotv_player:
-    git:
-      url: git://github.com/NBTX/apollotv_player.git
-      ref: master
+  cplayer:
+    #git:
+    #  url: git://github.com/NBTX/apollotv_player.git
+    #  ref: master
+    path: ../cplayer
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +57,9 @@ flutter:
           weight: 700
         - asset: fonts/GlacialIndifference-Italic.otf
           style: italic
+    - family: apollotv-icons
+      fonts:
+        - asset: fonts/apollotv-icons.woff
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
@@ -90,5 +94,5 @@ flutter_icons:
   image_path: "images/logo.png"
   image_path_android: "images/logo_android.png"
   image_path_ios: "images/logo_ios.png"
-  adaptive_icon_background: "#FF4E5D73"
+  adaptive_icon_background: "#FF8147FF"
   adaptive_icon_foreground: "images/logo_foreground.png"

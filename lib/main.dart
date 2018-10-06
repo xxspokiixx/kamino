@@ -14,10 +14,10 @@ import 'view/settings.dart';
 // Import pages
 import 'pages/home.dart';
 
-const primaryColor = const Color(0xFF4E5D72);
+const primaryColor = const Color(0xFF8147FF);
 const secondaryColor = const Color(0xFF303A47);
 const backgroundColor = const Color(0xFF303030);
-const highlightColor = const Color(0xFF696969);
+const highlightColor = const Color(0x968147FF);
 const appName = "ApolloTV";
 
 void main(){
@@ -114,8 +114,14 @@ class HomeAppState extends State<KaminoApp> {
         )
       ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.search, size: 32.0),
+      floatingActionButton: FloatingActionButton.extended(
+          label: const Text("Search", style: TextStyle(
+            fontWeight: FontWeight.normal,
+            fontFamily: 'GlacialIndifference',
+            letterSpacing: 0.2,
+            fontSize: 18.0
+          )),
+          icon: Icon(const IconData(0xe90a, fontFamily: 'apollotv-icons')),
           backgroundColor: Theme.of(context).primaryColor,
           elevation: 12.0,
           onPressed: () {
@@ -128,7 +134,6 @@ class HomeAppState extends State<KaminoApp> {
 
 
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
         child: new Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.max,
@@ -137,14 +142,17 @@ class HomeAppState extends State<KaminoApp> {
               onPressed: () {
                 // TODO: button code
               },
-              icon: Icon(Icons.home),
-              color: Colors.grey.shade400),
+              icon: Icon(const IconData(0xe900, fontFamily: 'apollotv-icons')),
+              color: Theme.of(context).primaryColor
+            ),
             IconButton(
               onPressed: null,
               icon: Icon(Icons.movie),
-              color: Colors.grey.shade400),
+              color: Colors.grey.shade400,
+              tooltip: "Movies"
+            ),
             Padding(
-              padding: const EdgeInsets.only(left: 65.0),
+              padding: const EdgeInsets.only(left: 125.0),
               child: IconButton(
                 onPressed: null,
                 icon: Icon(Icons.live_tv),
@@ -153,7 +161,7 @@ class HomeAppState extends State<KaminoApp> {
             ),
             IconButton(
               onPressed: null,
-              icon: Icon(Icons.favorite),
+              icon: Icon(Icons.favorite_border),
               color: Colors.grey.shade400,
             ),
           ],

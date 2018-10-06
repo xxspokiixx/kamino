@@ -69,6 +69,8 @@ class _SettingsViewState extends State<SettingsView> {
                       }
                     }
                 )
+
+                /* TODO: Logo attribution: S. Bonhomme, Supporters */
               ]
             );
           }

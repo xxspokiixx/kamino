@@ -8,15 +8,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.32.4"
-  apollotv_player:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "22a7db5800e9c59cab63b81c3843be11adad60a3"
-      url: "git://github.com/NBTX/apollotv_player.git"
-    source: git
-    version: "0.0.1"
   archive:
     dependency: transitive
     description:
@@ -66,6 +57,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
+  cplayer:
+    dependency: "direct main"
+    description:
+      path: "..\\cplayer"
+      relative: true
+    source: path
+    version: "0.0.1"
   crypto:
     dependency: transitive
     description:
@@ -309,6 +307,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.18.1"
+  screen:
+    dependency: transitive
+    description:
+      name: screen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.4"
   shelf:
     dependency: transitive
     description:

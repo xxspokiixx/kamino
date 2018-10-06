@@ -9,13 +9,6 @@
             </list>
           </value>
         </entry>
-        <entry key="apollotv_player">
-          <value>
-            <list>
-              <option value="D:/sdk/flutter/.pub-cache/git/apollotv_player-22a7db5800e9c59cab63b81c3843be11adad60a3/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="archive">
           <value>
             <list>
@@ -62,6 +55,13 @@
           <value>
             <list>
               <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/convert-2.0.2/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="cplayer">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../cplayer/lib" />
             </list>
           </value>
         </entry>
@@ -310,6 +310,13 @@
             </list>
           </value>
         </entry>
+        <entry key="screen">
+          <value>
+            <list>
+              <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/screen-0.0.4/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="shelf">
           <value>
             <list>
@@ -467,7 +474,7 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://D:/sdk/flutter/.pub-cache/git/apollotv_player-22a7db5800e9c59cab63b81c3843be11adad60a3/lib" />
+      <root url="file://$PROJECT_DIR$/../cplayer/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/git/dart_config-c5727795659e886a7db8b39a14e2c8987280fe1f/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-0.32.4/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/archive-2.0.4/lib" />
@@ -509,6 +516,7 @@
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/pub_semver-1.4.2/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.0.0+1/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.18.1/lib" />
+      <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/screen-0.0.4/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/shelf-0.7.3+3/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/shelf_packages_handler-1.0.4/lib" />
       <root url="file://D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/shelf_static-0.2.8/lib" />
