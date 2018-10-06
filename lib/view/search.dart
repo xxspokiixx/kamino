@@ -4,6 +4,7 @@ import 'search/provider.dart';
 import 'search/model.dart';
 import 'search/bloc.dart';
 import 'content_screens/movie_screen.dart';
+import 'package:kamino/view/content_screens/tv_overview/tv_overview.dart';
 
 const primaryColor = const Color(0xFF4E5D72);
 const secondaryColor = const Color(0xFF303A47);
@@ -26,11 +27,14 @@ class SearchViewState extends State<SearchView> {
     print(snapshot.data[index].showID);
 
     if (snapshot.data[index].mediaType == "tv"){
-      print("TV Show");
+      Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => TVOverview(id: snapshot.data[index].showID))
+      );
     } else {
       Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MovieOverview(snapshot.data[index].showID))
+          MaterialPageRoute(builder: (context) => MovieOverview(id: snapshot.data[index].showID))
       );
       print("Movie");
     }

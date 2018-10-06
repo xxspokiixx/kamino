@@ -55,13 +55,6 @@ class API {
 
     */
 
-    for (int i = 0; i < list.length; i++){
-      if (list[i].showID ==  null){
-        list.removeAt(i);
-        print(list[i].title);
-      }
-    }
-
 
     list.removeWhere((item) => item.mediaType != "movie" && item.mediaType != "tv");
     list.removeWhere((item) => item.id == null);

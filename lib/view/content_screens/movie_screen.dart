@@ -10,22 +10,6 @@ const backgroundColor = Colors.black;
 const highlightColor = Colors.white;
 const appName = "ApolloTV";
 
-void main(){
-  runApp(new MaterialApp(
-    title: appName,
-    home: MovieOverview(299536),
-    theme: new ThemeData(
-      brightness: Brightness.dark,
-      primarySwatch: Colors.blue,
-      accentColor: Colors.white,
-      //accentColor: const Color(0xFFFF5959),
-    ),
-
-    // Remove debug banner - because it's annoying.
-    debugShowCheckedModeBanner: false,
-  ));
-}
-
 class _movieScreenModel {
   final String posterPath, backdropPath, title;
   final String release_date, homepage, imdb_id;
@@ -42,21 +26,27 @@ class _movieScreenModel {
 
 }
 
-class MovieOverview extends StatelessWidget {
+class MovieOverview extends StatefulWidget {
   final int id;
-  MovieOverview(this.id);
+  MovieOverview({Key key, @required this.id}) : super(key: key);
+
+  @override
+  _movieOverviewState createState() => new _movieOverviewState();
+}
+
+class _movieOverviewState extends State<MovieOverview> {
 
   Future<List<_movieScreenModel>> _getOverview() async {
     List<_movieScreenModel> _data = [];
     Map json, _json, _recomJson;
 
-    String url = "https://api.themoviedb.org/3/movie/$id?"
+    String url = "https://api.themoviedb.org/3/movie/${widget.id}?"
         "api_key=b52e4d8c6e0b014ced7de2f7ea6f4284&language=en-US";
 
-    String _reviewsUrl = "https://api.themoviedb.org/3/movie/$id/reviews?"
+    String _reviewsUrl = "https://api.themoviedb.org/3/movie/${widget.id}/reviews?"
         "api_key=b52e4d8c6e0b014ced7de2f7ea6f4284&language=en-US&page=1";
 
-    String _recommendUrl = "https://api.themoviedb.org/3/movie/$id/similar?"
+    String _recommendUrl = "https://api.themoviedb.org/3/movie/${widget.id}/similar?"
         "api_key=b52e4d8c6e0b014ced7de2f7ea6f4284&language=en-US&page=1";
 
     var res = await http.get(url);
@@ -326,7 +316,7 @@ class MovieOverview extends StatelessWidget {
           }
       ),
       floatingActionButton: new FloatingActionButton(
-        onPressed: () =>  print("The id is  $id"), backgroundColor: Colors.red,
+        onPressed: () =>  print("The id is  ${widget.id}"), backgroundColor: Colors.red,
         elevation: 13.0,
         child: Icon(
             Icons.play_arrow, color: Colors.white, size: 46.0),
@@ -379,7 +369,12 @@ class MovieOverview extends StatelessWidget {
               padding: index == 0 ? const EdgeInsets.only(left: 18.0) :
               const EdgeInsets.only(left: 0.0),
               child: InkWell(
-                onTap: () => print(snapshot.data[0].recommendations[index]["id"]),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MovieOverview(id: snapshot.data[0].recommendations[index]["id"]))
+                  );
+                },
                 splashColor: Colors.white,
                 child: Container(
                   child: Column(
