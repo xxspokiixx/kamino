@@ -3,14 +3,6 @@ import 'package:kamino/main.dart';
 import 'search/provider.dart';
 import 'search/model.dart';
 import 'search/bloc.dart';
-import 'content_screens/movie_screen.dart';
-import 'package:kamino/view/content_screens/tv_overview/tv_overview.dart';
-
-const primaryColor = const Color(0xFF4E5D72);
-const secondaryColor = const Color(0xFF303A47);
-const backgroundColor = Colors.black;
-const highlightColor = Colors.white;
-const appName = "ApolloTV";
 
 class SearchView extends StatefulWidget {
   @override
@@ -21,34 +13,9 @@ class SearchViewState extends State<SearchView> {
 
   final movieBloc = MovieBloc(API());
   final TextEditingController _searchControl = TextEditingController();
-  GlobalKey<ScaffoldState> _key = new GlobalKey();
 
-  _openContentScreen(BuildContext context, AsyncSnapshot snapshot, int index) {
-    print(snapshot.data[index].showID);
-
-    if (snapshot.data[index].mediaType == "tv"){
-      Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => TVOverview(id: snapshot.data[index].showID))
-      );
-    } else {
-      Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => MovieOverview(id: snapshot.data[index].showID))
-      );
-      print("Movie");
-    }
-
-
-  }
 
   Widget _tvStream(BuildContext context, var movieBloc) {
-
-    TextStyle _overLayTextFormat = new TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 14.0,
-    );
-
     return StreamBuilder(
       stream: movieBloc.results,
       builder: (context, snapshot) {
@@ -57,7 +24,7 @@ class SearchViewState extends State<SearchView> {
 
           // Empty on first load
           //TODO: Add progress spinner after search term entered.
-          return Container();
+          return Center();
 
         } else if (snapshot.hasError) {
 
@@ -75,16 +42,17 @@ class SearchViewState extends State<SearchView> {
               ),
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int index) {
-
                 return InkWell(
-                  onTap: () => _openContentScreen(context,snapshot, index),
-                  splashColor: Colors.white,
+                  onTap: () => print(snapshot.data[index].mediaType),
+                  splashColor: Colors.blueAccent,
                   child: Card(
-                      child: Stack(
-                        children: <Widget>[
-                          ClipRRect(
-                            borderRadius: new BorderRadius.circular(5.0),
-                            child: Center(
+                    color: backgroundColor,
+                    child: Container(
+                      child: Padding(
+                        padding: EdgeInsets.all(0.0),
+                        child: ClipRRect(
+                          borderRadius: new BorderRadius.circular(5.0),
+                          child: Center(
                               child: snapshot.data[index].posterPath != null
                                   ? Image.network(
                                 "http://image.tmdb.org/t/p/w500" +
@@ -93,72 +61,11 @@ class SearchViewState extends State<SearchView> {
                                 height: 752.0,
                                 width: 500.0,
                               )
-                                  : Container(color: Colors.black,
-                                child: Stack(
-                                  children: <Widget>[
-                                    Center(
-                                      child: Column(
-                                        children: <Widget>[
-                                          Padding(
-                                            padding: snapshot.data[index].title == null ?
-                                            const EdgeInsets.only(top: 65.0, right: 20.0):
-                                            const EdgeInsets.only(top: 48.0, left: 14.0, right: 11.0),
-
-                                            child: Center(
-                                              child: Text(snapshot.data[index].title != null ?
-                                              snapshot.data[index].title : "No Title",
-                                                style: _overLayTextFormat,
-                                                overflow: TextOverflow.ellipsis,
-                                                maxLines: snapshot.data[index].title.toString().length < 10 ? 1 : 3,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
+                                  : Container()
                           ),
-
-                          Container(
-                            child: Opacity(opacity: 0.8,
-                              child: Container(
-                                padding: EdgeInsets.only(top: 112.5),
-                                child: Card(
-                                  color: Colors.transparent,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(top: 0.0),
-                                    child: Row(
-                                      children: <Widget>[
-
-                                        Padding(padding: snapshot.data[index].mediaType == "movie" ?
-                                        EdgeInsets.only(top: 4.0, left: 12.0, right: 3.0):
-                                        EdgeInsets.only(top: 4.0, left: 10.0, right: 4.0),
-                                          child: snapshot.data[index].mediaType == "tv" ?
-                                          Icon(Icons.live_tv,) : Icon(Icons.movie),
-                                        ),
-
-                                        Padding(
-                                          padding: snapshot.data[index].mediaType == "tv" ?
-                                          EdgeInsets.only(top: 10.0, bottom: 3.0) :
-                                          EdgeInsets.only(top: 8.0, bottom: 3.0),
-
-                                          child: snapshot.data[index].mediaType == "tv" ?
-                                          Text("TV Show", style: _overLayTextFormat,) :
-                                          Text("Movie", style: _overLayTextFormat,),
-                                        ),
-
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
+                        ),
+                      ),
+                    ),
                   ),
                 );
               },
@@ -178,6 +85,10 @@ class SearchViewState extends State<SearchView> {
         }
       },
     );
+  }
+
+  _searchControlEditingComplete() {
+
   }
 
   @override

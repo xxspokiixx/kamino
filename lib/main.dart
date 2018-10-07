@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:kamino/ui/uielements.dart';
-import 'view/content_screens/movie_screen.dart';
 
 // Import custom libraries / utils
 import 'animation/transition.dart';

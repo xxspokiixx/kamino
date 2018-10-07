@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kamino/animation/transition.dart';
 import 'package:kamino/ui/uielements.dart';
-<<<<<<< HEAD
 import 'package:cplayer/cplayer.dart';
-=======
-//import 'package:apollotv_player/apollotv_player.dart';
->>>>>>> eddy-new
 
 class HomePage {
 
@@ -38,20 +34,18 @@ class HomePage {
               )
           ),
 
-          /*
           new MaterialButton(
             onPressed: (){
               Navigator.push(
                   context,
                   FadeRoute(builder: (context) => CPlayer(
                     url: "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4"
-                  )),
+                  ))
               );
             },
             child: new Text("Debug Player"),
             color: Theme.of(context).primaryColor,
           )
-          */
         ]
     );
   }
