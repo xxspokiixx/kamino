@@ -14,13 +14,24 @@ dependencies:
   # App Dependencies
   package_info: ^0.3.2
   flutter_statusbarcolor: any
+<<<<<<< HEAD
   cplayer:
     #git:
     #  url: git://github.com/NBTX/apollotv_player.git
     #  ref: master
     path: ../cplayer/
+=======
+  #apollotv_player:
+  #  path: ../apollotv_player/
+
+  apollotv_player:
+    git:
+      url: git://github.com/NBTX/apollotv_player.git
+      ref: master
+>>>>>>> eddy-new
 
 dev_dependencies:
+  flutter_rating: ^0.0.1
   flutter_test:
     sdk: flutter
 
@@ -37,13 +48,13 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 
   assets:
+    - assets/images/no_image_detail.jpg
     - images/header.png
     - images/easteregg/background.jpg
     - images/easteregg/socks.png
