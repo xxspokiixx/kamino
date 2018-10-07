@@ -2,10 +2,10 @@
   <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
     <CLASSES>
       <root url="file://$USER_HOME$/development/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.3.2" />
-      <root url="file://$PROJECT_DIR$/../cplayer" />
       <root url="file://$USER_HOME$/development/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.6.5" />
       <root url="file://$USER_HOME$/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_statusbarcolor-0.0.4" />
       <root url="file://$USER_HOME$/development/flutter/.pub-cache/hosted/pub.dartlang.org/screen-0.0.4" />
+      <root url="file://$PROJECT_DIR$/../cplayer" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

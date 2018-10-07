@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kamino/animation/transition.dart';
 import 'package:kamino/ui/uielements.dart';
-<<<<<<< HEAD
+
 import 'package:cplayer/cplayer.dart';
-=======
-//import 'package:apollotv_player/apollotv_player.dart';
->>>>>>> eddy-new
 
 class HomePage {
 

@@ -1,0 +1,46 @@
+PODS:
+  - cplayer (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - flutter_statusbarcolor (0.0.1):
+    - Flutter
+  - package_info (0.0.1):
+    - Flutter
+  - screen (0.0.1):
+    - Flutter
+  - video_player (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - cplayer (from `.symlinks/plugins/cplayer/ios`)
+  - Flutter (from `.symlinks/flutter/ios`)
+  - flutter_statusbarcolor (from `.symlinks/plugins/flutter_statusbarcolor/ios`)
+  - package_info (from `.symlinks/plugins/package_info/ios`)
+  - screen (from `.symlinks/plugins/screen/ios`)
+  - video_player (from `.symlinks/plugins/video_player/ios`)
+
+EXTERNAL SOURCES:
+  cplayer:
+    :path: ".symlinks/plugins/cplayer/ios"
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  flutter_statusbarcolor:
+    :path: ".symlinks/plugins/flutter_statusbarcolor/ios"
+  package_info:
+    :path: ".symlinks/plugins/package_info/ios"
+  screen:
+    :path: ".symlinks/plugins/screen/ios"
+  video_player:
+    :path: ".symlinks/plugins/video_player/ios"
+
+SPEC CHECKSUMS:
+  cplayer: bb7e0640e97d56e39f98a9e55b4b6ec1517777ef
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  flutter_statusbarcolor: ccc8f90efe5e571f817aaed60dac5382d2cec98d
+  package_info: d7c98b64f60add4c2908b9d94d82a45d3c8827ad
+  screen: 22ab9c4a784112d4b21ad7d80e81729e0afdaa65
+  video_player: 906796a841943c8d370ac7c13b18039aa9b56498
+
+PODFILE CHECKSUM: 7765ea4305eaab0b3dfd384c7de11902aa3195fd
+
+COCOAPODS: 1.5.3

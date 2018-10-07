@@ -14,21 +14,11 @@ dependencies:
   # App Dependencies
   package_info: ^0.3.2
   flutter_statusbarcolor: any
-<<<<<<< HEAD
   cplayer:
     #git:
     #  url: git://github.com/NBTX/apollotv_player.git
     #  ref: master
     path: ../cplayer/
-=======
-  #apollotv_player:
-  #  path: ../apollotv_player/
-
-  apollotv_player:
-    git:
-      url: git://github.com/NBTX/apollotv_player.git
-      ref: master
->>>>>>> eddy-new
 
 dev_dependencies:
   flutter_rating: ^0.0.1

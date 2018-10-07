@@ -5,12 +5,6 @@ import 'dart:convert';
 import 'package:flutter_rating/flutter_rating.dart';
 import 'package:kamino/BottomGradient.dart';
 
-const ThemeColor = Colors.deepPurple;
-const primaryColor = ThemeColor;
-const backgroundColor = Colors.black;
-const highlightColor = Colors.white;
-const appName = "ApolloTV";
-
 class TVOverviewModel {
   final List created_by, genres, seasons, networks;
   final int vote_count;
@@ -122,7 +116,7 @@ class _TVOverviewState extends State<TVOverview> {
                       (BuildContext context, bool innerBoxIsScrolled) {
                     return <Widget>[
                       SliverAppBar(
-                        backgroundColor: ThemeColor,
+                        backgroundColor: Theme.of(context).backgroundColor,
                         elevation: 8.0,
                         expandedHeight: 180.0,
                         title: Padding(
@@ -228,7 +222,7 @@ class _TVOverviewState extends State<TVOverview> {
 
               return Center(
                   child: new CircularProgressIndicator(
-                backgroundColor: ThemeColor,
+                backgroundColor: Theme.of(context).backgroundColor,
               ));
             }),
       ),
@@ -502,7 +496,7 @@ class _TVOverviewState extends State<TVOverview> {
               padding: const EdgeInsets.only(left: 8.0),
               child: new StarRating(
                 rating: rating / 2,
-                color: primaryColor,
+                color: Theme.of(context).primaryColor,
                 borderColor: Colors.white,
                 size: 21.0,
                 starCount: 5,

@@ -4,12 +4,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_rating/flutter_rating.dart';
 
-const primaryColor = const Color(0xFF4E5D72);
-const secondaryColor = const Color(0xFF303A47);
-const backgroundColor = Colors.black;
-const highlightColor = Colors.white;
-const appName = "ApolloTV";
-
 class _movieScreenModel {
   final String posterPath, backdropPath, title;
   final String release_date, homepage, imdb_id;
@@ -167,7 +161,7 @@ class _movieOverviewState extends State<MovieOverview> {
           child: new StarRating(
             rating: rating / 2,
             color: Colors.redAccent,
-            borderColor: primaryColor,
+            borderColor: Theme.of(context).primaryColor,
             size: 26.0,
             starCount: 5,
           ),
@@ -316,7 +310,7 @@ class _movieOverviewState extends State<MovieOverview> {
           }
       ),
       floatingActionButton: new FloatingActionButton(
-        onPressed: () =>  print("The id is  ${widget.id}"), backgroundColor: Colors.red,
+        onPressed: () =>  print("The id is  ${widget.id}"), backgroundColor: Theme.of(context).primaryColor,
         elevation: 13.0,
         child: Icon(
             Icons.play_arrow, color: Colors.white, size: 46.0),
