@@ -82,3 +82,7 @@ fabric.properties
 .idea/libraries/Dart_SDK.xml
 .idea/libraries/Dart_Packages.xml
 .idea/codeStyles/Project.xml
+.idea/
+
+# API keys
+api.dart
