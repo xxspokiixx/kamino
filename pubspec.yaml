@@ -15,9 +15,8 @@ dependencies:
   package_info: ^0.3.2
   flutter_statusbarcolor: any
   cplayer:
-    #git:
-    #  url: git://github.com/NBTX/apollotv_player.git
-    #  ref: master
+    # Clone the GitHub repository at: https://github.com/ApolloTVofficial/cplayer
+    # into ../cplayer/
     path: ../cplayer/
 
 dev_dependencies:
