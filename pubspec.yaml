@@ -92,7 +92,8 @@ flutter_icons:
   android: true
   ios: true
   image_path: "images/logo.png"
-  image_path_android: "images/logo_android.png"
-  image_path_ios: "images/logo_ios.png"
-  adaptive_icon_background: "#FF8147FF"
+  image_path_android: "images/google.png"
+  image_path_ios: "images/apple.png"
+  #adaptive_icon_background: "#FF8147FF"
+  adaptive_icon_background: "images/logo_background.png"
   adaptive_icon_foreground: "images/logo_foreground.png"

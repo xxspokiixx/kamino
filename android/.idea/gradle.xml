@@ -7,11 +7,13 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
+            <option value="$PROJECT_DIR$/../../cplayer/android" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_statusbarcolor-0.0.4/android" />
-            <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.3.2/android" />
-            <option value="D:/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.6.5/android" />
+            <option value="$USER_HOME$/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_statusbarcolor-0.0.4/android" />
+            <option value="$USER_HOME$/development/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.3.2/android" />
+            <option value="$USER_HOME$/development/flutter/.pub-cache/hosted/pub.dartlang.org/screen-0.0.4/android" />
+            <option value="$USER_HOME$/development/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.6.5/android" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
