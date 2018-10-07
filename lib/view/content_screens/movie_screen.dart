@@ -4,6 +4,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_rating/flutter_rating.dart';
 
+/*
+    TODO: Move 'Movie' / 'TV Show' label to top of card.
+ */
+
 class _movieScreenModel {
   final String posterPath, backdropPath, title;
   final String release_date, homepage, imdb_id;
