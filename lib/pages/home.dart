@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kamino/animation/transition.dart';
 import 'package:kamino/ui/uielements.dart';
 //import 'package:apollotv_player/apollotv_player.dart';
 

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:flutter_rating/flutter_rating.dart';
-import 'package:kamino/BottomGradient.dart';
 
 
 class SeasonOverView extends StatefulWidget {
@@ -95,6 +93,12 @@ class _SeasonOverViewState extends State<SeasonOverView> {
                   body: TabBarView(
                     children: _tabBodyGenerator(snapshot),
                   ),
+                  floatingActionButton: new FloatingActionButton(
+                    onPressed: () =>  print("The id is"), backgroundColor: Colors.red,
+                    elevation: 13.0,
+                    child: Icon(
+                        Icons.play_arrow, color: Colors.white, size: 46.0),
+                  ),
                 ),
               );
 
@@ -174,13 +178,10 @@ class _SeasonOverViewState extends State<SeasonOverView> {
                     ),
                   ),
                 ),
-
-
-
-
               ],
             ),
           ),
+
       );
     }
 
