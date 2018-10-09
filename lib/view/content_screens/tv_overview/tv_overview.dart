@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
 import 'package:flutter_rating/flutter_rating.dart';
-import 'package:kamino/BottomGradient.dart';
+import 'package:http/http.dart' as http;
+import 'package:kamino/res/BottomGradient.dart';
 
 class TVOverviewModel {
   final List created_by, genres, seasons, networks;
@@ -59,9 +60,7 @@ class TVOverview extends StatefulWidget {
 }
 
 class _TVOverviewState extends State<TVOverview> {
-
   Future<List<TVOverviewModel>> getInfo() async {
-
     List<TVOverviewModel> _data = [];
 
     String url = "https://api.themoviedb.org/3/tv/${widget.id}?"
@@ -120,20 +119,21 @@ class _TVOverviewState extends State<TVOverview> {
                         elevation: 8.0,
                         expandedHeight: 180.0,
                         title: Padding(
-                        padding: snapshot.data[0].name != null
-                        ? EdgeInsets.only(bottom: 4.0)
-                            : EdgeInsets.only(bottom: 4.0),
-                        child: Text(
-                        snapshot.data[0].name != null ? snapshot.data[0].name : " ",
-                        style: TextStyle(
-                        fontSize: 22.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Roboto"),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        textDirection: TextDirection.ltr),
+                          padding: snapshot.data[0].name != null
+                              ? EdgeInsets.only(bottom: 4.0)
+                              : EdgeInsets.only(bottom: 4.0),
+                          child: Text(
+                              snapshot.data[0].name != null
+                                  ? snapshot.data[0].name
+                                  : " ",
+                              style: TextStyle(
+                                  fontSize: 22.0,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: "Roboto"),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              textDirection: TextDirection.ltr),
                         ),
-
                         actions: <Widget>[
                           IconButton(
                               icon: Icon(
@@ -163,8 +163,7 @@ class _TVOverviewState extends State<TVOverview> {
 
                         //StoryLine
                         Padding(
-                          padding:
-                          const EdgeInsets.only(top: 0.0, right: 0.0),
+                          padding: const EdgeInsets.only(top: 0.0, right: 0.0),
                           child: ExpansionTile(
                             title: Text(
                               "Synopsis",
@@ -176,12 +175,11 @@ class _TVOverviewState extends State<TVOverview> {
                             initiallyExpanded: true,
                             children: <Widget>[
                               _storyLine(snapshot),
-
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 8.0),
                                 child: SizedBox(
-                                    child: _genreList(snapshot),
-                                    height: 40.0,
+                                  child: _genreList(snapshot),
+                                  height: 40.0,
                                 ),
                               ),
                             ],
@@ -190,32 +188,27 @@ class _TVOverviewState extends State<TVOverview> {
 
                         //Season Info
                         ExpansionTile(
-                            title: Text(
-                              "Seasons",
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          title: Text(
+                            "Seasons",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
                             ),
-                            initiallyExpanded: false,
-                            children: <Widget>[
-
-                              SizedBox(
-                                    height: 266.0,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 0.0),
-                                      child: _seasonsCards(context, snapshot),
-                                    )
-                              ),
-
-                            ],
+                          ),
+                          initiallyExpanded: false,
+                          children: <Widget>[
+                            SizedBox(
+                                height: 266.0,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 0.0),
+                                  child: _seasonsCards(context, snapshot),
+                                )),
+                          ],
                         ),
-
                       ],
                     ),
                   ),
                 );
-
               } else if (snapshot.hasError) {
                 return new Center(child: Text("${snapshot.error}"));
               }
@@ -238,7 +231,6 @@ class _TVOverviewState extends State<TVOverview> {
           padding: const EdgeInsets.only(bottom: 80.0),
           child: Column(
             children: <Widget>[
-
               Column(
                 children: <Widget>[
                   /*
@@ -295,35 +287,32 @@ class _TVOverviewState extends State<TVOverview> {
     );
   }
 
-  Widget _seasonsCards(BuildContext context, AsyncSnapshot snapshot){
+  Widget _seasonsCards(BuildContext context, AsyncSnapshot snapshot) {
     return Column(
       children: <Widget>[
         //Search Results
         Padding(
           padding: const EdgeInsets.only(bottom: 0.0),
-          child: SizedBox (
+          child: SizedBox(
             child: _genSeasonCards(context, snapshot),
             height: 208.0,
           ),
         ),
-
       ],
     );
   }
 
-  Widget _genSeasonCards(BuildContext context, AsyncSnapshot snapshot){
-
-    if (snapshot.data[0].seasons != null){
-
+  Widget _genSeasonCards(BuildContext context, AsyncSnapshot snapshot) {
+    if (snapshot.data[0].seasons != null) {
       return ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemCount: snapshot.data[0].seasons.length,
-          itemBuilder: (BuildContext context, int index){
-
+          itemBuilder: (BuildContext context, int index) {
             return Padding(
-              padding: index == 0 ? const EdgeInsets.only(left: 18.0) :
-              const EdgeInsets.only(left: 0.0),
+              padding: index == 0
+                  ? const EdgeInsets.only(left: 18.0)
+                  : const EdgeInsets.only(left: 0.0),
               child: InkWell(
                 onTap: () => print(snapshot.data[0].seasons[index]["id"]),
                 splashColor: Colors.white,
@@ -336,16 +325,22 @@ class _TVOverviewState extends State<TVOverview> {
                           child: ClipRRect(
                             borderRadius: new BorderRadius.circular(5.0),
                             child: Container(
-                              child: snapshot.data[0].seasons[index]["poster_path"] != null ?
-                              Image.network("http://image.tmdb.org/t/p/w500" +
-                                  snapshot.data[0].seasons[index]["poster_path"],
-                                fit: BoxFit.fill,
-                                height: 185.0,
-                              ) : Image.asset("assets/images/no_image_detail.jpg",
-                                fit: BoxFit.fill,
-                                width: 130.0,
-                                height: 185.0,
-                              ),
+                              child: snapshot.data[0].seasons[index]
+                                          ["poster_path"] !=
+                                      null
+                                  ? Image.network(
+                                      "http://image.tmdb.org/t/p/w500" +
+                                          snapshot.data[0].seasons[index]
+                                              ["poster_path"],
+                                      fit: BoxFit.fill,
+                                      height: 185.0,
+                                    )
+                                  : Image.asset(
+                                      "assets/images/no_image_detail.jpg",
+                                      fit: BoxFit.fill,
+                                      width: 130.0,
+                                      height: 185.0,
+                                    ),
                             ),
                           ),
                         ),
@@ -355,10 +350,8 @@ class _TVOverviewState extends State<TVOverview> {
                 ),
               ),
             );
-          }
-      );
-
-    }else {
+          });
+    } else {
       return Container(
         child: Padding(
           padding: const EdgeInsets.only(top: 30.0),
@@ -366,12 +359,16 @@ class _TVOverviewState extends State<TVOverview> {
             child: Column(
               children: <Widget>[
                 Center(
-                  child: Icon(Icons.movie,size: 80.0, color: Colors.grey,),
+                  child: Icon(
+                    Icons.movie,
+                    size: 80.0,
+                    color: Colors.grey,
+                  ),
                 ),
                 Center(
-                  child: Text("Couldn't find seasons",
-                    style: TextStyle(
-                        fontSize: 20.0),
+                  child: Text(
+                    "Couldn't find seasons",
+                    style: TextStyle(fontSize: 20.0),
                   ),
                 ),
               ],
@@ -413,19 +410,20 @@ class _TVOverviewState extends State<TVOverview> {
     );
   }
 
-  Widget _genreList(AsyncSnapshot snapshot){
-
+  Widget _genreList(AsyncSnapshot snapshot) {
     return Container(
       child: ListView.builder(
-        itemCount: snapshot.data[0].genres.length == null ?
-        0 : snapshot.data[0].genres.length,
+        itemCount: snapshot.data[0].genres.length == null
+            ? 0
+            : snapshot.data[0].genres.length,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (BuildContext context, int index){
+        itemBuilder: (BuildContext context, int index) {
           return Container(
             child: Padding(
-              padding: index != 0 ? EdgeInsets.only(left: 7.0, right: 2.0) :
-              EdgeInsets.only(left: 21.0, right: 2.0),
+              padding: index != 0
+                  ? EdgeInsets.only(left: 7.0, right: 2.0)
+                  : EdgeInsets.only(left: 21.0, right: 2.0),
               child: new Chip(
                 label: Text(
                   snapshot.data[0].genres[index]["name"],
