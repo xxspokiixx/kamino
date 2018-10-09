@@ -29,7 +29,6 @@ class API {
       "api_key=$api_key&language=en-US"
       "&query={1}&include_adult=false";
 
-
   Future<List<Movie>>  get(String query) async {
     List<Movie> list = [];
 
@@ -40,29 +39,8 @@ class API {
         .then((json) => json["results"])
         .then((movies) => movies.forEach((movie) => list.add(Movie.fromJson(movie))));
 
-
-    /*
-    for (int i = 0; i < list.length; i++){
-      if (list[i].posterPath.toString() == null){
-        list.removeAt(i);
-      }
-
-    }
-
-    List<int> tempArray = List();
-
-    */
-
-
     list.removeWhere((item) => item.mediaType != "movie" && item.mediaType != "tv");
     list.removeWhere((item) => item.id == null);
-
-    /*
-    print(tempArray);
-    for (int i in tempArray){
-      list.removeAt(i);
-    }
-    */
 
     return list;
   }
