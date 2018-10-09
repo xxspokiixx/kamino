@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_rating/flutter_rating.dart';
 import 'package:kamino/BottomGradient.dart';
+import 'season_overview.dart';
 
 const ThemeColor = Colors.deepPurple;
 const primaryColor = ThemeColor;
@@ -317,6 +318,21 @@ class _TVOverviewState extends State<TVOverview> {
     );
   }
 
+  _openEpisodes(BuildContext context, AsyncSnapshot snapshot, int index){
+
+    //snapshot.data[0].seasons[index]["poster_path"]
+
+    List _data = [
+      snapshot.data[0].id,
+      snapshot.data[0].seasons[index]["season_number"],
+      snapshot.data[0].seasons,
+    ];
+
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SeasonOverView(inputList: _data)));
+  }
+
   Widget _genSeasonCards(BuildContext context, AsyncSnapshot snapshot){
 
     if (snapshot.data[0].seasons != null){
@@ -331,7 +347,7 @@ class _TVOverviewState extends State<TVOverview> {
               padding: index == 0 ? const EdgeInsets.only(left: 18.0) :
               const EdgeInsets.only(left: 0.0),
               child: InkWell(
-                onTap: () => print(snapshot.data[0].seasons[index]["id"]),
+                onTap: () => _openEpisodes(context, snapshot, index),
                 splashColor: Colors.white,
                 child: Container(
                   child: Column(

@@ -210,7 +210,6 @@ class SearchViewState extends State<SearchView> {
         home: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-
             title: new Stack(
               alignment: Alignment(1.0, 0.0),
               children: <Widget>[

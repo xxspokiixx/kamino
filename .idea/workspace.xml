@@ -4,13 +4,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c4f10de-129e-4564-9298-9c90c3b289b0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/BottomGradient.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/view/content_screens/tv_overview/tv_overview.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/content_screens/movie_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/content_screens/movie_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/search.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/search.dart" afterDir="false" />
-    </list>
+    <list default="true" id="7c4f10de-129e-4564-9298-9c90c3b289b0" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,14 +36,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="movie_screen.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="movie_screen.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/view/content_screens/movie_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="376" column="18" lean-forward="true" selection-start-line="376" selection-start-column="18" selection-end-line="376" selection-end-column="18" />
+            <state relative-caret-position="792">
+              <caret line="77" column="14" lean-forward="true" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="n#!!block;n#_movieScreenModel#0" />
+                <element signature="e#2684#3077#0" />
+                <element signature="e#3122#3854#0" />
+                <element signature="e#3899#4699#0" />
+                <element signature="e#4746#5901#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="season_overview.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/view/content_screens/tv_overview/season_overview.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="509">
+              <caret line="172" column="60" selection-start-line="172" selection-start-column="60" selection-end-line="172" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tv_overview.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/view/content_screens/tv_overview/tv_overview.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1097">
+              <caret line="126" column="37" lean-forward="true" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+                <element signature="n#!!block;n#TVOverviewModel#0" />
+                <element signature="e#8178#10257#0" />
+                <element signature="e#10697#13087#0" />
+                <element signature="e#13135#14021#0" />
+                <element signature="e#14064#14867#0" />
+                <element signature="e#14914#15693#0" />
+                <element signature="e#15740#17352#0" />
+                <element signature="e#17398#18195#0" />
               </folding>
             </state>
           </provider>
@@ -58,28 +88,8 @@
       <file leaf-file-name="pubspec.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
+            <state relative-caret-position="850">
               <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tv_overview.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/view/content_screens/tv_overview/tv_overview.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="419" column="3" selection-start-line="419" selection-start-column="3" selection-end-line="419" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="n#!!block;n#TVOverviewModel#0" />
-                <element signature="e#9987#10285#0" />
-                <element signature="e#10357#12745#0" />
-                <element signature="e#12793#13679#0" />
-                <element signature="e#14216#15016#0" />
-                <element signature="e#15103#15882#0" />
-                <element signature="e#15929#17542#0" />
-                <element signature="e#17588#18385#0" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -87,10 +97,12 @@
       <file leaf-file-name="search.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/view/search.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="802">
-              <caret line="275" column="23" selection-start-line="275" selection-start-column="23" selection-end-line="275" selection-end-column="23" />
+            <state relative-caret-position="-613">
+              <caret line="211" column="30" selection-start-line="211" selection-start-column="30" selection-end-line="211" selection-end-column="30" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#885#1316#0" />
+                <element signature="e#1374#7191#0" />
               </folding>
             </state>
           </provider>
@@ -99,16 +111,20 @@
       <file leaf-file-name="model.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/view/search/model.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -123,26 +139,35 @@
       <find>genre</find>
       <find>_gen</find>
       <find>InkWell</find>
+      <find>simila</find>
+      <find>route</find>
+      <find>showID</find>
+      <find>snapshot.data</find>
+      <find>tabbar</find>
+      <find>Future</find>
     </findStrings>
   </component>
+  <component name="FlutterView" splitter-proportion="0.96259844" />
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/view/search/model.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
-        <option value="$PROJECT_DIR$/lib/view/search.dart" />
-        <option value="$PROJECT_DIR$/lib/view/content_screens/tv_overview/tv_overview.dart" />
         <option value="$PROJECT_DIR$/lib/view/content_screens/movie_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/view/search/model.dart" />
+        <option value="$PROJECT_DIR$/lib/view/content_screens/tv_overview/tv_overview.dart" />
+        <option value="$PROJECT_DIR$/lib/view/search.dart" />
+        <option value="$PROJECT_DIR$/lib/view/content_screens/tv_overview/season_overview.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="961" />
+    <option name="x" value="-7" />
+    <option name="width" value="854" />
     <option name="height" value="1017" />
   </component>
   <component name="ProjectView">
@@ -150,8 +175,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,7 +220,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -206,7 +231,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -325,7 +350,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.28635347" />
-      <window_info anchor="right" id="Flutter Outline" order="3" />
+      <window_info anchor="right" id="Flutter Outline" order="3" weight="0.3294621" />
       <window_info anchor="bottom" id="Logcat" order="7" weight="0.32997763" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -338,14 +363,14 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32997763" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34004474" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32997763" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32997763" />
       <window_info id="Captures" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20904645" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18337408" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="Flutter Inspector" order="3" weight="0.43031785" />
+      <window_info anchor="right" id="Flutter Inspector" order="3" weight="0.56926954" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32662192" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -359,16 +384,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/view/search/model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/view/content_screens/movie_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5406">
@@ -376,6 +391,10 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#_movieScreenModel#0" />
+            <element signature="e#2684#3077#0" />
+            <element signature="e#3122#3854#0" />
+            <element signature="e#3899#4699#0" />
+            <element signature="e#4746#5901#0" />
           </folding>
         </state>
       </provider>
@@ -404,6 +423,10 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#_movieScreenModel#0" />
+            <element signature="e#2684#3077#0" />
+            <element signature="e#3122#3854#0" />
+            <element signature="e#3899#4699#0" />
+            <element signature="e#4746#5901#0" />
           </folding>
         </state>
       </provider>
@@ -419,9 +442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -431,6 +451,8 @@
           <caret line="80" column="26" selection-start-line="80" selection-start-column="26" selection-end-line="82" selection-end-column="42" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#885#1316#0" />
+            <element signature="e#1374#7191#0" />
           </folding>
         </state>
       </provider>
@@ -465,6 +487,8 @@
           <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#885#1316#0" />
+            <element signature="e#1374#7191#0" />
           </folding>
         </state>
       </provider>
@@ -473,9 +497,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -486,6 +507,10 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#_movieScreenModel#0" />
+            <element signature="e#2684#3077#0" />
+            <element signature="e#3122#3854#0" />
+            <element signature="e#3899#4699#0" />
+            <element signature="e#4746#5901#0" />
           </folding>
         </state>
       </provider>
@@ -520,6 +545,8 @@
           <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#885#1316#0" />
+            <element signature="e#1374#7191#0" />
           </folding>
         </state>
       </provider>
@@ -528,9 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -541,6 +565,10 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#_movieScreenModel#0" />
+            <element signature="e#2684#3077#0" />
+            <element signature="e#3122#3854#0" />
+            <element signature="e#3899#4699#0" />
+            <element signature="e#4746#5901#0" />
           </folding>
         </state>
       </provider>
@@ -575,6 +603,8 @@
           <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#885#1316#0" />
+            <element signature="e#1374#7191#0" />
           </folding>
         </state>
       </provider>
@@ -583,9 +613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -596,6 +623,10 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#_movieScreenModel#0" />
+            <element signature="e#2684#3077#0" />
+            <element signature="e#3122#3854#0" />
+            <element signature="e#3899#4699#0" />
+            <element signature="e#4746#5901#0" />
           </folding>
         </state>
       </provider>
@@ -624,6 +655,10 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#_movieScreenModel#0" />
+            <element signature="e#2684#3077#0" />
+            <element signature="e#3122#3854#0" />
+            <element signature="e#3899#4699#0" />
+            <element signature="e#4746#5901#0" />
           </folding>
         </state>
       </provider>
@@ -641,6 +676,8 @@
           <caret line="7" column="16" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="16" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#885#1316#0" />
+            <element signature="e#1374#7191#0" />
           </folding>
         </state>
       </provider>
@@ -649,9 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -679,6 +713,10 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#_movieScreenModel#0" />
+            <element signature="e#2684#3077#0" />
+            <element signature="e#3122#3854#0" />
+            <element signature="e#3899#4699#0" />
+            <element signature="e#4746#5901#0" />
           </folding>
         </state>
       </provider>
@@ -689,6 +727,8 @@
           <caret line="72" column="72" selection-start-line="72" selection-start-column="42" selection-end-line="72" selection-end-column="72" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#885#1316#0" />
+            <element signature="e#1374#7191#0" />
           </folding>
         </state>
       </provider>
@@ -714,6 +754,10 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#_movieScreenModel#0" />
+            <element signature="e#2684#3077#0" />
+            <element signature="e#3122#3854#0" />
+            <element signature="e#3899#4699#0" />
+            <element signature="e#4746#5901#0" />
           </folding>
         </state>
       </provider>
@@ -724,6 +768,8 @@
           <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#885#1316#0" />
+            <element signature="e#1374#7191#0" />
           </folding>
         </state>
       </provider>
@@ -749,6 +795,10 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#_movieScreenModel#0" />
+            <element signature="e#2684#3077#0" />
+            <element signature="e#3122#3854#0" />
+            <element signature="e#3899#4699#0" />
+            <element signature="e#4746#5901#0" />
           </folding>
         </state>
       </provider>
@@ -759,31 +809,16 @@
           <caret line="82" column="45" lean-forward="true" selection-start-line="82" selection-start-column="45" selection-end-line="82" selection-end-column="45" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#885#1316#0" />
+            <element signature="e#1374#7191#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/view/search/api_key.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="51" selection-start-column="6" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
+        <state relative-caret-position="850">
           <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/view/search/model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -797,41 +832,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/view/search/model.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/view/search/api_key.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="51" selection-start-column="6" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/view/content_screens/movie_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="77" column="14" lean-forward="true" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#!!block;n#_movieScreenModel#0" />
+            <element signature="e#2684#3077#0" />
+            <element signature="e#3122#3854#0" />
+            <element signature="e#3899#4699#0" />
+            <element signature="e#4746#5901#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/view/content_screens/tv_overview/tv_overview.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="419" column="3" selection-start-line="419" selection-start-column="3" selection-end-line="419" selection-end-column="3" />
+        <state relative-caret-position="-1097">
+          <caret line="126" column="37" lean-forward="true" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#TVOverviewModel#0" />
-            <element signature="e#9987#10285#0" />
-            <element signature="e#10357#12745#0" />
-            <element signature="e#12793#13679#0" />
-            <element signature="e#14216#15016#0" />
-            <element signature="e#15103#15882#0" />
-            <element signature="e#15929#17542#0" />
-            <element signature="e#17588#18385#0" />
+            <element signature="e#8178#10257#0" />
+            <element signature="e#10697#13087#0" />
+            <element signature="e#13135#14021#0" />
+            <element signature="e#14064#14867#0" />
+            <element signature="e#14914#15693#0" />
+            <element signature="e#15740#17352#0" />
+            <element signature="e#17398#18195#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/view/search.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="802">
-          <caret line="275" column="23" selection-start-line="275" selection-start-column="23" selection-end-line="275" selection-end-column="23" />
+        <state relative-caret-position="-613">
+          <caret line="211" column="30" selection-start-line="211" selection-start-column="30" selection-end-line="211" selection-end-column="30" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#885#1316#0" />
+            <element signature="e#1374#7191#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/view/content_screens/movie_screen.dart">
+    <entry file="file://$PROJECT_DIR$/lib/view/content_screens/tv_overview/season_overview.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="376" column="18" lean-forward="true" selection-start-line="376" selection-start-column="18" selection-end-line="376" selection-end-column="18" />
+        <state relative-caret-position="509">
+          <caret line="172" column="60" selection-start-line="172" selection-start-column="60" selection-end-line="172" selection-end-column="60" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="n#!!block;n#_movieScreenModel#0" />
           </folding>
         </state>
       </provider>
