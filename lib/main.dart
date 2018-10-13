@@ -4,13 +4,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:kamino/ui/uielements.dart';
 
+// Import custom libraries / utils
 import 'animation/transition.dart';
+// Import pages
 import 'pages/home.dart';
+// Import views
 import 'view/search.dart';
 import 'view/settings.dart';
-// Import custom libraries / utils
-// Import views
-// Import pages
 
 var themeData = ThemeData(
     brightness: Brightness.dark,
@@ -22,7 +22,7 @@ var themeData = ThemeData(
 
 const primaryColor = const Color(0xFF8147FF);
 const secondaryColor = const Color(0xFF303A47);
-const backgroundColor = const Color(0xFF202020);
+const backgroundColor = const Color(0xFF303030);
 const highlightColor = const Color(0x968147FF);
 const appName = "ApolloTV";
 
@@ -80,7 +80,7 @@ class HomeAppState extends State<KaminoApp> {
                         image: AssetImage('images/header.png'),
                         fit: BoxFit.fitHeight,
                         alignment: Alignment.bottomCenter),
-                    color: const Color(0xFF4E5D72))),
+                    color: const Color(0xFF000000))),
             ListTile(
                 leading: const Icon(Icons.library_books), title: Text("News")),
             Divider(),

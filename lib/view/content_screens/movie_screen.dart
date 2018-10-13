@@ -4,6 +4,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating/flutter_rating.dart';
 import 'package:http/http.dart' as http;
+import 'package:eventsource/eventsource.dart';
+import 'package:cplayer/cplayer.dart';
+import 'package:kamino/animation/transition.dart';
 
 import '../../api.dart';
 
@@ -101,13 +104,13 @@ class _movieOverviewState extends State<MovieOverview> {
       child: snapshot.data[0].backdropPath != null
           ? Image.network(
               "http://image.tmdb.org/t/p/w500" + snapshot.data[0].backdropPath,
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
               height: 180.0,
               width: width,
             )
           : Image.asset(
               "assets/images/no_image_detail.jpg",
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
               height: 180.0,
               width: width,
             ),
@@ -362,7 +365,50 @@ class _movieOverviewState extends State<MovieOverview> {
             ));
           }),
       floatingActionButton: new FloatingActionButton(
-        onPressed: () => print("The id is  ${widget.id}"),
+        onPressed: () async {
+          // Get claws token.
+          String token = await getClawsToken();
+
+          // Make HTTP request
+          String title =
+              (await _getOverview())[0].title.replaceAll("/ /g", "+");
+
+          String source =
+              claws_instance + "api/search/movies?title=$title&token=$token";
+          EventSource streamingURLEventSource =
+              await EventSource.connect(source);
+
+          var hasFoundResult = false;
+
+          streamingURLEventSource.listen((Event event) {
+            if (hasFoundResult) {
+              return;
+            }
+
+            if (event.event == "results") {
+              var resultData = jsonDecode(event.data);
+              if (resultData["m3u8File"] != null) {
+                /*
+                Navigator.push(
+                    context,
+                    FadeRoute(
+                        builder: (context) => ApolloTVPlayer(
+                            url: "data:application/x-mpegURL;base64," +
+                                resultData["m3u8File"])));
+                */
+              } else {
+                var videoSourceURL = resultData["videoSourceUrl"];
+                print(videoSourceURL);
+                Navigator.push(
+                    context,
+                    FadeRoute(
+                        builder: (context) =>
+                            ApolloTVPlayer(url: videoSourceURL)));
+                hasFoundResult = true;
+              }
+            }
+          });
+        },
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 13.0,
         child: Icon(Icons.play_arrow, color: Colors.white, size: 46.0),

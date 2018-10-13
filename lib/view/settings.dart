@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:kamino/animation/transition.dart';
-import 'package:kamino/main.dart';
 import 'package:kamino/ui/uielements.dart';
 import 'package:kamino/view/easteregg.dart';
 import 'package:package_info/package_info.dart';
@@ -13,16 +12,14 @@ class SettingsView extends StatefulWidget {
 }
 
 class _SettingsViewState extends State<SettingsView> {
-
   PackageInfo _packageInfo = new PackageInfo(
       appName: 'Unknown',
       packageName: 'Unknown',
       version: 'Unknown',
-      buildNumber: 'Unknown'
-  );
+      buildNumber: 'Unknown');
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     _fetchPackageInfo();
   }
@@ -40,42 +37,33 @@ class _SettingsViewState extends State<SettingsView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: TitleText("Settings"),
-            // MD2: make the color the same as the background.
-            backgroundColor: backgroundColor,
-            // Remove box-shadow
-            elevation: 0.00,
+          title: TitleText("Settings"),
+          // MD2: make the color the same as the background.
+          backgroundColor: const Color(0xFF000000),
+          // Remove box-shadow
+          elevation: 0.00,
 
-            // Center title
-            centerTitle: true,
+          // Center title
+          centerTitle: true,
         ),
-        body: new Builder(
-          builder: (BuildContext context){
-            return new ListView(
-              children: <Widget>[
-                ListTile(
-                    title: TitleText("Apollo Version"),
-                    subtitle: Text("v${_packageInfo.version}_build-${_packageInfo.buildNumber}"),
-                    onTap: () {
-                      versionTapCount += 1;
-                      if(versionTapCount >= 10){
+        body: new Builder(builder: (BuildContext context) {
+          return new ListView(children: <Widget>[
+            ListTile(
+                title: TitleText("Apollo Version"),
+                subtitle: Text(
+                    "v${_packageInfo.version}_build-${_packageInfo.buildNumber}"),
+                onTap: () {
+                  versionTapCount += 1;
+                  if (versionTapCount >= 10) {
+                    Navigator.push(context,
+                        SlideLeftRoute(builder: (context) => EasterEggView()));
 
-                        Navigator.push(
-                            context,
-                            SlideLeftRoute(builder: (context) => EasterEggView())
-                        );
+                    versionTapCount = 0;
+                  }
+                })
 
-                        versionTapCount = 0;
-                      }
-                    }
-                )
-
-                /* TODO: Logo attribution: S. Bonhomme, Supporters */
-              ]
-            );
-          }
-        )
-    );
+            /* TODO: Logo attribution: S. Bonhomme, Supporters */
+          ]);
+        }));
   }
-
 }

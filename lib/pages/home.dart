@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:kamino/main.dart';
 import 'package:kamino/ui/uielements.dart';
 
 class HomePage {
   build(BuildContext context) {
     return new SafeArea(
         child: new Container(
-            color: const Color(0xFF202020),
+            padding: EdgeInsets.only(top: 5.0),
+            color: backgroundColor,
             child: new ListView(children: [
               new Card(
-                  color: const Color(0xFF303030),
+                  color: const Color(0xFF404040),
                   child: new Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
@@ -20,7 +22,7 @@ class HomePage {
                         )
                       ])),
               new Card(
-                  color: const Color(0xFF303030),
+                  color: const Color(0xFF404040),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[

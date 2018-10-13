@@ -18,6 +18,16 @@ dependencies:
     # Clone the GitHub repository at: https://github.com/ApolloTVofficial/cplayer
     # into ../cplayer/
     path: ../cplayer/
+  uni_links: ^0.1.3
+  dbcrypt: ^1.0.0
+  shared_preferences: ^0.4.3
+  eventsource: #^0.2.0
+    # Use this Git repository until
+    # https://github.com/stevenroose/dart-eventsource/pull/4
+    # is merged into the stevenroose eventsource branch.
+    git:
+      url: "https://github.com/NBTX/dart-eventsource"
+      ref: "patch-1"
 
 dev_dependencies:
   flutter_rating: ^0.0.1
