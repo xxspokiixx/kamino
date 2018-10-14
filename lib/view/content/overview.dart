@@ -133,39 +133,37 @@ class _ContentOverviewState extends State<ContentOverview> {
             ),
           ];
         },
-        body: Scaffold(
-          backgroundColor: Color(0xFF000000),
-          body: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                // This is the summary line, just below the title.
-                _generateOverviewWidget(context),
+        body: Container(
+          color: Color(0xFF000000),
+          child: ListView(
+            children: <Widget>[
+              // This is the summary line, just below the title.
+              _generateOverviewWidget(context),
 
-                // Content Widgets
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20.0),
-                  child: Column(
-                    children: <Widget>[
-                      /*
-                        * If you're building a row widget, it should have a horizontal
-                        * padding of 24 (narrow) or 16 (wide).
-                        *
-                        * If your row is relevant to the last, use a vertical padding
-                        * of 5, otherwise use a vertical padding of 5 - 10.
-                        *
-                        * Relevant means visually and by context.
-                      */
-                      _generateGenreChipsRow(context),
-                      _generateInformationCards(),
+              // Content Widgets
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.0),
+                child: Column(
+                  children: <Widget>[
+                    /*
+                      * If you're building a row widget, it should have a horizontal
+                      * padding of 24 (narrow) or 16 (wide).
+                      *
+                      * If your row is relevant to the last, use a vertical padding
+                      * of 5, otherwise use a vertical padding of 5 - 10.
+                      *
+                      * Relevant means visually and by context.
+                    */
+                    _generateGenreChipsRow(context),
+                    _generateInformationCards(),
 
-                      // Context-specific layout
-                      _generateLayout(widget.contentType)
-                    ],
-                  )
+                    // Context-specific layout
+                    _generateLayout(widget.contentType)
+                  ],
                 )
-              ]
-            )
-          ),
+              )
+            ]
+          )
         )
       )
     );
