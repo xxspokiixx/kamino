@@ -46,9 +46,6 @@ class MovieLayout{
   ///
   static Widget getFloatingActionButton(BuildContext context){
     return new FloatingActionButton.extended(
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0))
-      ),
       onPressed: (){
         // TODO: Play movie.
         showDialog(
