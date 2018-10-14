@@ -388,14 +388,7 @@ class _movieOverviewState extends State<MovieOverview> {
             if (event.event == "results") {
               var resultData = jsonDecode(event.data);
               if (resultData["m3u8File"] != null) {
-                /*
-                Navigator.push(
-                    context,
-                    FadeRoute(
-                        builder: (context) => ApolloTVPlayer(
-                            url: "data:application/x-mpegURL;base64," +
-                                resultData["m3u8File"])));
-                */
+                // TODO: handle m3u8 links
               } else {
                 var videoSourceURL = resultData["videoSourceUrl"];
                 print(videoSourceURL);

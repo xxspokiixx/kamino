@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kamino/main.dart';
-import 'package:kamino/view/content_screens/tv_overview/tv_overview.dart';
-
-import 'content_screens/movie_screen.dart';
+import 'package:kamino/models/content.dart';
+import 'package:kamino/view/content/overview.dart';
 import 'search/bloc.dart';
 import 'search/model.dart';
 import 'search/provider.dart';
@@ -18,21 +17,26 @@ class SearchViewState extends State<SearchView> {
   GlobalKey<ScaffoldState> _key = new GlobalKey();
 
   _openContentScreen(BuildContext context, AsyncSnapshot snapshot, int index) {
-    print(snapshot.data[index].showID);
-
     if (snapshot.data[index].mediaType == "tv") {
       Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  TVOverview(id: snapshot.data[index].showID)));
+                  ContentOverview(
+                      contentId: snapshot.data[index].showID,
+                      contentType: ContentOverviewContentType.TV_SHOW )
+          )
+      );
     } else {
       Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  MovieOverview(id: snapshot.data[index].showID)));
-      print("Movie");
+                  ContentOverview(
+                      contentId: snapshot.data[index].showID,
+                      contentType: ContentOverviewContentType.MOVIE )
+          )
+      );
     }
   }
 
@@ -206,96 +210,89 @@ class SearchViewState extends State<SearchView> {
   Widget build(BuildContext context) {
     return MovieProvider(
       movieBloc: MovieBloc(API()),
-      child: MaterialApp(
-        // Remove debug banner - because it's annoying.
-        debugShowCheckedModeBanner: false,
-
-        theme: themeData,
-
-        home: Scaffold(
-            appBar: AppBar(
-              centerTitle: true,
-
-              title: new Stack(
-                alignment: Alignment(1.0, 0.0),
-                children: <Widget>[
-                  new Container(
-                    margin: const EdgeInsets.only(top: 10.0),
-                    child: new PhysicalModel(
-                        borderRadius: BorderRadius.circular(2.0),
-                        elevation: 1.0,
-                        color: Colors.white,
-                        child: new Padding(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 12.0, horizontal: 15.0),
-                            child: new TextFormField(
-                                controller: _searchControl,
-                                autofocus: true,
-                                autocorrect: true,
-                                style: TextStyle(
-                                    fontFamily: 'GlacialIndifference',
-                                    fontSize: 18.0,
-                                    color: Colors.black),
-                                decoration: new InputDecoration.collapsed(
-                                    hintText: "Search TV shows and movies...",
-                                    hintStyle:
-                                        TextStyle(color: Colors.black26)),
-                                keyboardAppearance: Brightness.dark,
-                                onEditingComplete: () {
-                                  movieBloc.query.add(_searchControl.text);
-                                },
-                                textInputAction: TextInputAction.search,
-                                textCapitalization: TextCapitalization.words))),
-                  ),
-                  Container(
-                      margin: const EdgeInsets.only(top: 10.0, right: 10.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          IconButton(
-                              icon: Icon(Icons.search,
-                                  size: 28.0, color: Colors.black54),
-                              onPressed: () {
+      child: Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            automaticallyImplyLeading: false,
+            title: new Stack(
+              alignment: Alignment(1.0, 0.0),
+              children: <Widget>[
+                new Container(
+                  margin: const EdgeInsets.only(top: 10.0),
+                  child: new PhysicalModel(
+                      borderRadius: BorderRadius.circular(2.0),
+                      elevation: 1.0,
+                      color: Colors.white,
+                      child: new Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 12.0, horizontal: 15.0),
+                          child: new TextFormField(
+                              controller: _searchControl,
+                              autofocus: true,
+                              autocorrect: true,
+                              style: TextStyle(
+                                  fontFamily: 'GlacialIndifference',
+                                  fontSize: 18.0,
+                                  color: Colors.black),
+                              decoration: new InputDecoration.collapsed(
+                                  hintText: "Search TV shows and movies...",
+                                  hintStyle:
+                                      TextStyle(color: Colors.black26)),
+                              keyboardAppearance: Brightness.dark,
+                              onEditingComplete: () {
                                 movieBloc.query.add(_searchControl.text);
-                              })
-                        ],
-                      ))
-                ],
-              ),
-
-              // MD2: make the color the same as the background.
-              backgroundColor: backgroundColor,
-              // Remove box-shadow
-              elevation: 0.00,
+                              },
+                              textInputAction: TextInputAction.search,
+                              textCapitalization: TextCapitalization.words))),
+                ),
+                Container(
+                    margin: const EdgeInsets.only(top: 10.0, right: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        IconButton(
+                            icon: Icon(Icons.search,
+                                size: 28.0, color: Colors.black54),
+                            onPressed: () {
+                              movieBloc.query.add(_searchControl.text);
+                            })
+                      ],
+                    ))
+              ],
             ),
-            body: Container(
-              color: Theme.of(context).backgroundColor,
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Container(
-                      child: Center(
-                        child: StreamBuilder(
-                          stream: movieBloc.log,
-                          builder: (context, snapshot) => Container(
-                                margin:
-                                    EdgeInsets.only(top: 10.0, bottom: 10.0),
-                                child: Text(snapshot?.data ?? '',
-                                    style: TextStyle(
-                                        color: Colors.white70,
-                                        fontFamily: 'GlacialIndifference',
-                                        fontSize: 15.0)),
-                              ),
-                        ),
+
+            // MD2: make the color the same as the background.
+            backgroundColor: backgroundColor,
+            // Remove box-shadow
+            elevation: 0.00,
+          ),
+          body: Container(
+            color: Theme.of(context).backgroundColor,
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Container(
+                    child: Center(
+                      child: StreamBuilder(
+                        stream: movieBloc.log,
+                        builder: (context, snapshot) => Container(
+                              margin:
+                                  EdgeInsets.only(top: 10.0, bottom: 10.0),
+                              child: Text(snapshot?.data ?? '',
+                                  style: TextStyle(
+                                      color: Colors.white70,
+                                      fontFamily: 'GlacialIndifference',
+                                      fontSize: 15.0)),
+                            ),
                       ),
                     ),
                   ),
-                  Flexible(child: _tvStream(context, movieBloc))
-                ],
-              ),
-            )),
-      ),
-    );
+                ),
+                Flexible(child: _tvStream(context, movieBloc))
+              ],
+            ),
+          )),
+      );
   }
 }

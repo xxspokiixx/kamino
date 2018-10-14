@@ -12,6 +12,7 @@ dependencies:
   rxdart: ^0.18.1
 
   # App Dependencies
+  auto_size_text: ^0.2.1
   package_info: ^0.3.2
   flutter_statusbarcolor: any
   cplayer:

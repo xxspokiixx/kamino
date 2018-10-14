@@ -22,7 +22,7 @@ var themeData = ThemeData(
 
 const primaryColor = const Color(0xFF8147FF);
 const secondaryColor = const Color(0xFF303A47);
-const backgroundColor = const Color(0xFF303030);
+const backgroundColor = const Color(0xFF26282C);
 const highlightColor = const Color(0x968147FF);
 const appName = "ApolloTV";
 
@@ -60,7 +60,7 @@ class HomeAppState extends State<KaminoApp> {
     // TODO: implement build
     return new Scaffold(
         appBar: AppBar(
-          title: const TitleText(appName),
+          title: TitleText(appName),
           // MD2: make the color the same as the background.
           backgroundColor: backgroundColor,
           // Remove box-shadow
@@ -111,8 +111,10 @@ class HomeAppState extends State<KaminoApp> {
             backgroundColor: Theme.of(context).primaryColor,
             elevation: 12.0,
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SearchView()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchView())
+              );
             }),
         bottomNavigationBar: BottomAppBar(
           color: const Color(0xFF252525),

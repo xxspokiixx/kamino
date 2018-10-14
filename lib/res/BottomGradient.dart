@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class BottomGradient extends StatelessWidget {
+  // Positional offset.
   final double offset;
 
   BottomGradient({this.offset: 0.98});
-
   BottomGradient.noOffset() : offset = 1.0;
 
   @override
@@ -14,10 +14,18 @@ class BottomGradient extends StatelessWidget {
           gradient: LinearGradient(
             end: FractionalOffset(0.0, 0.0),
             begin: FractionalOffset(0.0, offset),
+            stops: [
+              0.1,
+              0.35,
+              0.9
+            ],
             colors: <Color>[
-              Colors.black,
-              Color(0x002C2B33),
-              Color(0x002C2B33)
+//              Color(0xFF313038),
+//              Color(0x20313038),
+//              Color(0x70000000)
+              Color(0xFF000000),
+              Color(0x20000000),
+              Color(0x70000000)
             ],
           )),
     );

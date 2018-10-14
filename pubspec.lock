@@ -29,6 +29,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
+  auto_size_text:
+    dependency: "direct main"
+    description:
+      name: auto_size_text
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -106,10 +113,10 @@ packages:
     description:
       path: "."
       ref: patch-1
-      resolved-ref: "143cbaa0cb4d2c3eec47106da09e736bf73c1889"
+      resolved-ref: "8c02f3e41f918da86e9125476942835335e7dc86"
       url: "https://github.com/NBTX/dart-eventsource"
     source: git
-    version: "0.2.0-patch1"
+    version: "0.2.0-1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -135,7 +142,7 @@ packages:
       name: flutter_statusbarcolor
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.4"
+    version: "0.1.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -294,7 +301,7 @@ packages:
       name: petitparser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.2"
   plugin:
     dependency: transitive
     description:
@@ -502,7 +509,7 @@ packages:
       name: xml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.1"
+    version: "3.2.3"
   yaml:
     dependency: transitive
     description:
@@ -511,5 +518,5 @@ packages:
     source: hosted
     version: "2.1.15"
 sdks:
-  dart: ">=2.0.0 <=2.1.0-dev.3.1.flutter-760a9690c2"
+  dart: ">=2.0.0 <=2.1.0-dev.5.0.flutter-a2eb050044"
   flutter: ">=0.2.5 <2.0.0"

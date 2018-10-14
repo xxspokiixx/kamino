@@ -14,11 +14,12 @@ class HomePage {
                   child: new Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        const ListTile(
+                        ListTile(
                           leading: const Icon(Icons.playlist_play),
-                          title: const TitleText('Continue Watching'),
+                          title: TitleText('Continue Watching'),
                           subtitle: const Text(
-                              "Start watching right where you left off..."),
+                              "Start watching right where you left off..."
+                          ),
                         )
                       ])),
               new Card(
@@ -26,9 +27,9 @@ class HomePage {
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      const ListTile(
+                      ListTile(
                         leading: const Icon(Icons.trending_up),
-                        title: const TitleText('Trending on ApolloTV'),
+                        title: TitleText('Trending on ApolloTV'),
                         subtitle: const Text('What others are watching.'),
                       )
                     ],
