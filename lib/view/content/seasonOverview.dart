@@ -1,15 +1,20 @@
+import 'package:intl/intl.dart';
+import 'package:kamino/api.dart' as api;
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:kamino/ui/uielements.dart';
 
-class SeasonOverView extends StatefulWidget {
+
+class SeasonOverview extends StatefulWidget {
   final List inputList;
-  SeasonOverView({Key key, @required this.inputList}) : super(key: key);
+  SeasonOverview({Key key, @required this.inputList}) : super(key: key);
 
   @override
-  _SeasonOverViewState createState() => new _SeasonOverViewState();
+  _SeasonOverviewState createState() => new _SeasonOverviewState();
 }
 
 class SeasonModel {
@@ -24,7 +29,7 @@ class SeasonModel {
         id = json["id"], episodes = json["episodes"];
 }
 
-class _SeasonOverViewState extends State<SeasonOverView> {
+class _SeasonOverviewState extends State<SeasonOverview> {
 
   List<SeasonModel> results;
   List<SeasonModel> temp;
@@ -33,9 +38,8 @@ class _SeasonOverViewState extends State<SeasonOverView> {
     List<SeasonModel> _data = [];
     Map _json;
 
-    String url = "https://api.themoviedb.org/3/tv/${widget.inputList[0]}/season/"
-        "${widget.inputList[1]}?"
-        "api_key=b52e4d8c6e0b014ced7de2f7ea6f4284&language=en-US";
+    String url = "${api.tvdb_root_url}/tv/${widget.inputList[0]}/season/"
+        "${widget.inputList[1]}${api.tvdb_default_arguments}";
 
     http.Response res  = await http.get(url);
 
@@ -79,6 +83,7 @@ class _SeasonOverViewState extends State<SeasonOverView> {
               return DefaultTabController(
                 length: snapshot.data[0].episodes.length,
                 child: Scaffold(
+                  backgroundColor: Colors.black,
                   appBar: new AppBar(
                     actions: <Widget>[
                       Checkbox(value: false, onChanged: null),
@@ -88,16 +93,35 @@ class _SeasonOverViewState extends State<SeasonOverView> {
                     bottom: TabBar(
                       isScrollable: true,
                       tabs: _createTabs(snapshot),
+                      indicatorColor: Colors.white,
                     ),
                   ),
                   body: TabBarView(
                     children: _tabBodyGenerator(snapshot),
                   ),
-                  floatingActionButton: new FloatingActionButton(
-                    onPressed: () =>  print("The id is"), backgroundColor: Colors.red,
-                    elevation: 13.0,
-                    child: Icon(
-                        Icons.play_arrow, color: Colors.white, size: 46.0),
+                  floatingActionButton: new FloatingActionButton.extended(
+                    onPressed: () {
+                      // TODO: Play TV Show episode
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context){
+                            return AlertDialog(
+                                title: Text("We're working on it..."),
+                                content: Text("You know, I think someone said this was an important feature.")
+                            );
+                          }
+                      );
+                    },
+                    icon: Icon(Icons.play_arrow),
+                    label: Text(
+                      "Play Episode",
+                      style: TextStyle(
+                          letterSpacing: 0.0,
+                          fontFamily: 'GlacialIndifference',
+                          fontSize: 16.0
+                      ),
+                    ),
+                    backgroundColor: Theme.of(context).primaryColor,
                   ),
                 ),
               );
@@ -106,7 +130,7 @@ class _SeasonOverViewState extends State<SeasonOverView> {
               return Scaffold(
                 appBar: new AppBar(),
                 body: Center(
-                  child: Text("No Episodes Found, Try Again Later"),),
+                  child: Text("No episodes found."),),
               );
             }
 
@@ -117,8 +141,12 @@ class _SeasonOverViewState extends State<SeasonOverView> {
           }
 
           return Center(
-              child: new CircularProgressIndicator(
-                backgroundColor: Colors.deepPurpleAccent,));
+            child: CircularProgressIndicator(
+              valueColor: new AlwaysStoppedAnimation<Color>(
+                  Theme.of(context).primaryColor
+              ),
+            )
+          );
         }
     );
   }
@@ -138,35 +166,33 @@ class _SeasonOverViewState extends State<SeasonOverView> {
                 Padding(
                   padding: EdgeInsets.only(left: 12.0, top:  15.0),
                   child: snapshot.data[0].episodes[i]["name"] == null ? Container() :
-                  Text(snapshot.data[0].episodes[i]["name"], textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 23.0, fontWeight: FontWeight.bold,),
-                  ),
+                  TitleText(snapshot.data[0].episodes[i]["name"], fontSize: 32.0)
                 ),
 
                 Padding(
                   padding: EdgeInsets.only(left: 12.0, top:  4.0),
                   child:snapshot.data[0].episodes[i]["air_date"] == null ? Container() :
-                  Text(snapshot.data[0].episodes[i]["air_date"],
+                  Text(
+                    new DateFormat.yMMMMd("en_US").format(
+                      DateTime.parse(snapshot.data[0].episodes[i]["air_date"])
+                    ),
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontSize: 15.0)
+                      fontSize: 15.0,
+                      color: Colors.grey
+                    )
                     ,),
                 ),
 
 
                 Padding(
-                  padding: EdgeInsets.only(left: 12.0, top:  8.0, right: 12.0),
+                  padding: EdgeInsets.only(left: 12.0, top: 24.0, right: 12.0),
                   child:episodeImage(snapshot, i),
                 ),
 
                 Padding(
                   padding: EdgeInsets.only(
-                      left: 12.0, top:  14.0, right: 12.0, bottom: 14.0),
-                  child:Divider(height: 4.0,),
-                ),
-
-                Padding(
-                  padding: EdgeInsets.only(
+                    top: 12.0,
                       left: 12.0, right: 12.0, bottom: 19.0),
                   child: snapshot.data[0].episodes[i]["overview"] == null ?
                   Container() :
@@ -175,6 +201,7 @@ class _SeasonOverViewState extends State<SeasonOverView> {
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         fontFamily: "Roboto", fontSize: 15.0, height: 1.3,
+                      color: Colors.grey
                     ),
                   ),
                 ),
@@ -199,7 +226,7 @@ class _SeasonOverViewState extends State<SeasonOverView> {
               snapshot.data[0].episodes[index]["still_path"],
           height: 220.0,
           width: 700.0,
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
         ),
       );
 
@@ -210,7 +237,7 @@ class _SeasonOverViewState extends State<SeasonOverView> {
             "assets/images/no_image_detail.jpg",
           height: 220.0,
           width: 700.0,
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
         ),
       );
     }

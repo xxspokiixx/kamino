@@ -39,6 +39,43 @@ class MovieLayout{
     );
   }
 
+  ///
+  /// applyTransformations() -
+  /// Allows this layout to apply transformations to the overview scaffold.
+  /// This should be used to add a play FAB, for example.
+  ///
+  static Widget getFloatingActionButton(BuildContext context){
+    return new FloatingActionButton.extended(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10.0))
+      ),
+      onPressed: (){
+        // TODO: Play movie.
+        showDialog(
+            context: context,
+            builder: (BuildContext context){
+              return AlertDialog(
+                title: Text("We're working on it..."),
+                content: Text("You know, I think someone said this was an important feature.")
+              );
+            }
+        );
+      },
+      icon: Icon(Icons.play_arrow),
+      label: Text(
+        "Play Movie",
+        style: TextStyle(
+            letterSpacing: 0.0,
+            fontFamily: 'GlacialIndifference',
+            fontSize: 16.0
+        ),
+      ),
+      backgroundColor: Theme.of(context).primaryColor,
+    );
+  }
+
+  /* PRIVATE SUBCLASS-SPECIFIC METHODS */
+
   static Widget _generateSimilarMovieCards(MovieContentModel _data){
     return ListView.builder(
       shrinkWrap: true,
@@ -67,30 +104,23 @@ class MovieLayout{
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(0.0),
-                    child: Card(
-                      child: ClipRRect(
-                        borderRadius: new BorderRadius.circular(5.0),
-                        child: Container(
-                          child: _data.recommendations[index]
-                          ["poster_path"] !=
-                              null
-                              ? Image.network(
-                            "http://image.tmdb.org/t/p/w500" +
-                                _data
-                                    .recommendations[index]
-                                ["poster_path"],
+                    child: Card( child: ClipRRect(
+                      borderRadius: new BorderRadius.circular(5.0),
+                      child: Container(
+                        child: _data.recommendations[index]["poster_path"] != null
+                          ? FadeInImage.assetNetwork(
+                            placeholder: "assets/images/no_image_detail.jpg",
+                            image: "http://image.tmdb.org/t/p/w500" +
+                                _data.recommendations[index]["poster_path"],
                             fit: BoxFit.fill,
                             height: 185.0,
-                          )
-                              : Image.asset(
-                            "assets/images/no_image_detail.jpg",
+                          ) : Image.asset("assets/images/no_image_detail.jpg",
                             fit: BoxFit.fill,
                             width: 130.0,
                             height: 185.0,
                           ),
-                        ),
                       ),
-                    ),
+                    )),
                   ),
                 ],
               ),

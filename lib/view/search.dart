@@ -79,7 +79,7 @@ class SearchViewState extends State<SearchView> {
                               ? Image.network(
                                   "http://image.tmdb.org/t/p/w500" +
                                       snapshot.data[index].posterPath,
-                                  fit: BoxFit.fill,
+                                  fit: BoxFit.cover,
                                   height: 752.0,
                                   width: 500.0,
                                 )
@@ -220,30 +220,33 @@ class SearchViewState extends State<SearchView> {
                 new Container(
                   margin: const EdgeInsets.only(top: 10.0),
                   child: new PhysicalModel(
-                      borderRadius: BorderRadius.circular(2.0),
-                      elevation: 1.0,
-                      color: Colors.white,
-                      child: new Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 12.0, horizontal: 15.0),
-                          child: new TextFormField(
-                              controller: _searchControl,
-                              autofocus: true,
-                              autocorrect: true,
-                              style: TextStyle(
-                                  fontFamily: 'GlacialIndifference',
-                                  fontSize: 18.0,
-                                  color: Colors.black),
-                              decoration: new InputDecoration.collapsed(
-                                  hintText: "Search TV shows and movies...",
-                                  hintStyle:
-                                      TextStyle(color: Colors.black26)),
-                              keyboardAppearance: Brightness.dark,
-                              onEditingComplete: () {
-                                movieBloc.query.add(_searchControl.text);
-                              },
-                              textInputAction: TextInputAction.search,
-                              textCapitalization: TextCapitalization.words))),
+                    borderRadius: BorderRadius.circular(10.0),
+                    elevation: 1.0,
+                    color: Colors.transparent,
+                    child: new Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 12.0, horizontal: 15.0),
+                        child: new TextFormField(
+                          controller: _searchControl,
+                          autofocus: true,
+                          autocorrect: true,
+                          style: TextStyle(
+                              fontFamily: 'GlacialIndifference',
+                              fontSize: 18.0,
+                              color: Colors.white),
+                          decoration: new InputDecoration.collapsed(
+                              hintText: "Search TV shows and movies...",
+                              hintStyle:
+                                  TextStyle(color: Colors.grey)),
+                          keyboardAppearance: Brightness.dark,
+                          onEditingComplete: () {
+                            movieBloc.query.add(_searchControl.text);
+                          },
+                          textInputAction: TextInputAction.search,
+                          textCapitalization: TextCapitalization.words
+                        )
+                    )
+                  ),
                 ),
                 Container(
                     margin: const EdgeInsets.only(top: 10.0, right: 10.0),
@@ -252,7 +255,7 @@ class SearchViewState extends State<SearchView> {
                       children: <Widget>[
                         IconButton(
                             icon: Icon(Icons.search,
-                                size: 28.0, color: Colors.black54),
+                                size: 28.0, color: Colors.grey),
                             onPressed: () {
                               movieBloc.query.add(_searchControl.text);
                             })

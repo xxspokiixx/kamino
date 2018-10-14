@@ -95,77 +95,80 @@ class _ContentOverviewState extends State<ContentOverview> {
     // This is shown whilst the data is loading.
     if (_data == null) {
       return Scaffold(
-          body: Center(
-            child: CircularProgressIndicator(
-              valueColor: new AlwaysStoppedAnimation<Color>(
-                  Theme.of(context).primaryColor
-              ),
-            )
+        backgroundColor: Colors.black,
+        body: Center(
+          child: CircularProgressIndicator(
+            valueColor: new AlwaysStoppedAnimation<Color>(
+                Theme.of(context).primaryColor
+            ),
           )
-        );
+        )
+      );
     }
 
     // When the data has loaded we can display the general outline and content-type specific body.
     return new Scaffold(
       body: NestedScrollView(
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return <Widget>[
-            SliverAppBar(
-              actions: <Widget>[
-                IconButton(icon: Icon(Icons.favorite_border, color: Colors.white), onPressed: null),
-              ],
-              expandedHeight: 200.0,
-              floating: false,
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                centerTitle: true,
-                title: Text(
-                  _data.title,
-                  maxLines: 1,
-                  overflow: TextOverflow.fade,
-                  style: TextStyle(
-                    fontFamily: 'GlacialIndifference'
-                  )
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                actions: <Widget>[
+                  IconButton(icon: Icon(Icons.favorite_border, color: Colors.white), onPressed: null),
+                ],
+                expandedHeight: 200.0,
+                floating: false,
+                pinned: true,
+                flexibleSpace: FlexibleSpaceBar(
+                  centerTitle: true,
+                  title: Text(
+                      _data.title,
+                      maxLines: 1,
+                      overflow: TextOverflow.fade,
+                      style: TextStyle(
+                          fontFamily: 'GlacialIndifference'
+                      )
+                  ),
+                  background: _generateBackdropImage(context),
+                  collapseMode: CollapseMode.pin,
                 ),
-                background: _generateBackdropImage(context),
-                collapseMode: CollapseMode.pin,
               ),
-            ),
-          ];
-        },
-        body: Container(
-          color: Color(0xFF000000),
-          child: ListView(
-            children: <Widget>[
-              // This is the summary line, just below the title.
-              _generateOverviewWidget(context),
-
-              // Content Widgets
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.0),
-                child: Column(
+            ];
+          },
+          body: Container(
+              color: Color(0xFF000000),
+              child: ListView(
                   children: <Widget>[
-                    /*
-                      * If you're building a row widget, it should have a horizontal
-                      * padding of 24 (narrow) or 16 (wide).
-                      *
-                      * If your row is relevant to the last, use a vertical padding
-                      * of 5, otherwise use a vertical padding of 5 - 10.
-                      *
-                      * Relevant means visually and by context.
-                    */
-                    _generateGenreChipsRow(context),
-                    _generateInformationCards(),
+                    // This is the summary line, just below the title.
+                    _generateOverviewWidget(context),
 
-                    // Context-specific layout
-                    _generateLayout(widget.contentType)
-                  ],
-                )
+                    // Content Widgets
+                    Padding(
+                        padding: EdgeInsets.symmetric(vertical: 20.0),
+                        child: Column(
+                          children: <Widget>[
+                            /*
+                              * If you're building a row widget, it should have a horizontal
+                              * padding of 24 (narrow) or 16 (wide).
+                              *
+                              * If your row is relevant to the last, use a vertical padding
+                              * of 5, otherwise use a vertical padding of 5 - 10.
+                              *
+                              * Relevant means visually and by context.
+                            */
+                            _generateGenreChipsRow(context),
+                            _generateInformationCards(),
+
+                            // Context-specific layout
+                            _generateLayout(widget.contentType)
+                          ],
+                        )
+                    )
+                  ]
               )
-            ]
           )
-        )
-      )
+      ),
+
+      floatingActionButton: _getFloatingActionButton(widget.contentType, context),
     );
   }
 
@@ -371,5 +374,22 @@ class _ContentOverviewState extends State<ContentOverview> {
       default:
         return Container();
     }
+  }
+
+  ///
+  /// getFloatingActionButton -
+  /// This works like the generateLayout method above.
+  /// This is used to add a floating action button to the layout.
+  /// Just return null if your layout doesn't need a floating action button.
+  ///
+  Widget _getFloatingActionButton(ContentOverviewContentType contentType, BuildContext context){
+    switch(contentType){
+      case ContentOverviewContentType.TV_SHOW:
+        return null;
+      case ContentOverviewContentType.MOVIE:
+        return MovieLayout.getFloatingActionButton(context);
+    }
+
+    return null;
   }
 }
