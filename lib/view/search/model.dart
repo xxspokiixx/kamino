@@ -5,10 +5,11 @@ import 'api_key.dart';
 
 class Movie {
   final String mediaType;
-  final int id;
-  final String title, posterPath,backdropPath;
+  final int id, pageCount;
+  final String title, posterPath,backdropPath, year;
 
-  Movie(this.mediaType, this.id, this.title, this.posterPath, this.backdropPath);
+  Movie(this.mediaType, this.id, this.title,
+      this.posterPath, this.backdropPath, this.year, this.pageCount);
 
   String get tv => mediaType;
   String get checkPoster => posterPath;
@@ -16,9 +17,13 @@ class Movie {
 
   Movie.fromJson(Map json)
       : mediaType = json["media_type"], id = json["id"],
-        title = json["original_name"] == null ? json["name"]:json["original_name"],
+        title = json["original_name"] != null ?
+        json["original_name"]: json["original_title"],
+        pageCount = json["total_pages"],
         posterPath = json["poster_path"],
-        backdropPath = json["backdrop_path"];
+        backdropPath = json["backdrop_path"],
+        year = json["release_date"] == null ?
+        json["first_air_date"] :  json["release_date"];
 }
 
 class API {
