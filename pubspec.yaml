@@ -1,6 +1,15 @@
 name: kamino
 description: ApolloTV for iOS and Android.
 
+#Version Code Format:
+#  [Human Readable Version]+[MMIIRRT]
+
+#  M => Major (xx)
+#  I => Minor (xx)
+#  R => Release (xx)
+#  T => Type (0 => Prerelease, 1 => Beta, 2 => Release Candidate, 3 => Stable)
+version: 1.0.0+100000
+
 dependencies:
   # Core Dependencies
   flutter:

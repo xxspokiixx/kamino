@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:kamino/main.dart';
 import 'package:kamino/ui/uielements.dart';
 
+/*
+
+  U0gg4p2kIERM
+  It's a secret.
+
+ */
+
 class HomePage {
   build(BuildContext context) {
     return new SafeArea(

@@ -168,7 +168,11 @@ class _ContentOverviewState extends State<ContentOverview> {
           )
       ),
 
-      floatingActionButton: _getFloatingActionButton(widget.contentType, context),
+      floatingActionButton: _getFloatingActionButton(
+          widget.contentType,
+          context,
+          _data
+      ),
     );
   }
 
@@ -382,12 +386,12 @@ class _ContentOverviewState extends State<ContentOverview> {
   /// This is used to add a floating action button to the layout.
   /// Just return null if your layout doesn't need a floating action button.
   ///
-  Widget _getFloatingActionButton(ContentOverviewContentType contentType, BuildContext context){
+  Widget _getFloatingActionButton(ContentOverviewContentType contentType, BuildContext context, ContentModel model){
     switch(contentType){
       case ContentOverviewContentType.TV_SHOW:
         return null;
       case ContentOverviewContentType.MOVIE:
-        return MovieLayout.getFloatingActionButton(context);
+        return MovieLayout.getFloatingActionButton(context, model);
     }
 
     return null;
