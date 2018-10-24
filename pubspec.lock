@@ -67,7 +67,7 @@ packages:
   cplayer:
     dependency: "direct main"
     description:
-      path: "../cplayer"
+      path: cplayer
       relative: true
     source: path
     version: "0.0.1"
