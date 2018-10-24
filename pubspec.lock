@@ -108,15 +108,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  eventsource:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: patch-1
-      resolved-ref: "8c02f3e41f918da86e9125476942835335e7dc86"
-      url: "https://github.com/NBTX/dart-eventsource"
-    source: git
-    version: "0.2.0-1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -440,13 +431,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  sync:
-    dependency: transitive
-    description:
-      name: sync
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.0"
   synchronized:
     dependency: transitive
     description:
@@ -510,6 +494,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.6"
+  w3c_event_source:
+    dependency: "direct main"
+    description:
+      name: w3c_event_source
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
   watcher:
     dependency: transitive
     description:

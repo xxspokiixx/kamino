@@ -1,0 +1,3 @@
+[submodule "cplayer"]
+	path = cplayer
+	url = https://github.com/ApolloTVofficial/cplayer

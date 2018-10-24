@@ -15,7 +15,6 @@ class SearchView extends StatefulWidget {
 class SearchViewState extends State<SearchView> {
   final movieBloc = MovieBloc(API());
   final TextEditingController _searchControl = TextEditingController();
-  GlobalKey<ScaffoldState> _key = new GlobalKey();
 
   _openContentScreen(BuildContext context, AsyncSnapshot snapshot, int index) {
     if (snapshot.data[index].mediaType == "tv") {

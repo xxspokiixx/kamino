@@ -86,6 +86,8 @@ class TVShowLayout{
           );
       });
     }
+
+    return Container();
   }
 
   static void _openEpisodesView(

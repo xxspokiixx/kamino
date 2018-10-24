@@ -48,6 +48,8 @@ class _ContentOverviewState extends State<ContentOverview> {
         _data = data;
       });
     });
+
+    super.initState();
   }
 
   // Load the data from the source.

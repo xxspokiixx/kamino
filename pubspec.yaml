@@ -32,13 +32,13 @@ dependencies:
   dbcrypt: ^1.0.0
   shared_preferences: ^0.4.3
   intl: ^0.15.7
-  eventsource: #^0.2.0
+  w3c_event_source: ^1.0.0
     # Use this Git repository until
     # https://github.com/stevenroose/dart-eventsource/pull/4
     # is merged into the stevenroose eventsource branch.
-    git:
-      url: "https://github.com/NBTX/dart-eventsource"
-      ref: "patch-1"
+    # git:
+    #  url: "https://github.com/NBTX/dart-eventsource"
+    #  ref: "patch-1"
 
 dev_dependencies:
   flutter_rating: ^0.0.1

@@ -20,12 +20,12 @@ class SeasonOverview extends StatefulWidget {
 class SeasonModel {
   final int seasonNumber, id;
   final List episodes;
-  final String air_date;
+  final String airDate;
 
-  SeasonModel(this.seasonNumber, this.id, this.episodes, this.air_date);
+  SeasonModel(this.seasonNumber, this.id, this.episodes, this.airDate);
 
   SeasonModel.fromJson(Map json):
-        seasonNumber = json["season_number"], air_date = json["air_date"],
+        seasonNumber = json["season_number"], airDate = json["air_date"],
         id = json["id"], episodes = json["episodes"];
 }
 
@@ -46,7 +46,7 @@ class _SeasonOverviewState extends State<SeasonOverview> {
     _json = jsonDecode(res.body);
 
     SeasonModel _dataMine = new SeasonModel(_json["season_number"],
-        _json["id"], _json["episodes"], _json["air_date"]);
+        _json["id"], _json["episodes"], _json["air_ate"]);
 
     _data.add(_dataMine);
 

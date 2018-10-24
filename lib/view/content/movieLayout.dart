@@ -4,7 +4,6 @@ import 'package:kamino/models/movie.dart';
 import 'package:kamino/ui/uielements.dart';
 import 'package:kamino/view/content/overview.dart';
 
-import 'package:eventsource/eventsource.dart';
 import 'package:kamino/api.dart' as api;
 
 class MovieLayout{
@@ -50,35 +49,9 @@ class MovieLayout{
   static Widget getFloatingActionButton(BuildContext context, MovieContentModel model){
     return new FloatingActionButton.extended(
       onPressed: (){
-        // TODO: Play movie.
-        /*showDialog(
-            context: context,
-            builder: (BuildContext context){
-              return AlertDialog(
-                title: Text("We're working on it..."),
-                content: Text("You know, I think someone said this was an important feature.")
-              );
-            }
-        );*/
-
-        startPlaying() async {
-          String clawsToken = await api.getClawsToken();
-          String saneTitle = model.title; //.replaceAll(new RegExp(r' '), "+");
-
-          String endpointURL = "${api.claws_instance}api/search/movies?title=${saneTitle}&token=${clawsToken}";
-
-          EventSource source = await EventSource.connect(endpointURL);
-
-          source.listen((Event event) => (){
-            print(event);
-          });
-
-          source.handleError((error) => (){
-            print("An error occurred whilst loading streams to play.");
-            print(error);
-          });
-        };
-        startPlaying();
+        api.playMovie(
+          model.title
+        );
       },
       icon: Icon(Icons.play_arrow),
       label: Text(
