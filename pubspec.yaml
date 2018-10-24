@@ -1,7 +1,7 @@
 name: kamino
 description: ApolloTV for iOS and Android.
 
-#Version Code Format:
+# Version Code Format:
 #  [Human Readable Version]+[MMIIRRT]
 
 #  M => Major (xx)
@@ -22,6 +22,9 @@ dependencies:
 
   # App Dependencies
   auto_size_text: ^0.2.1
+  # For more information visit: https://apollotv.gitbook.io/kamino/setting-up-your-repository
+  cplayer:
+    path: "../cplayer"
   package_info: ^0.3.2
   flutter_statusbarcolor: any
   uni_links: ^0.1.3
