@@ -64,6 +64,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
+  cplayer:
+    dependency: "direct main"
+    description:
+      path: "../cplayer"
+      relative: true
+    source: path
+    version: "0.0.1"
   crypto:
     dependency: transitive
     description:
@@ -337,6 +344,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.18.1"
+  screen:
+    dependency: transitive
+    description:
+      name: screen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.4"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -482,6 +496,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
+  video_player:
+    dependency: transitive
+    description:
+      name: video_player
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.5"
   vm_service_client:
     dependency: transitive
     description:
@@ -519,4 +540,4 @@ packages:
     version: "2.1.15"
 sdks:
   dart: ">=2.0.0 <=2.1.0-dev.5.0.flutter-a2eb050044"
-  flutter: ">=0.1.4 <2.0.0"
+  flutter: ">=0.2.5 <2.0.0"
